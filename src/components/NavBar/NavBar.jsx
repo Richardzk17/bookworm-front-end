@@ -2,7 +2,6 @@
 import { NavLink } from 'react-router-dom'
 
 // assets
-import logo from '../../assets/branding/logo.svg'
 
 // css
 
