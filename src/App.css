@@ -22,10 +22,9 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-a,
+/* a,
 a:visited {
-  color: #00d8ff
-}
+} */
 
 nav > ul {
   margin: 0;

@@ -1,7 +1,6 @@
 // npm modules
 import { useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
 // services
 import * as authService from '../../services/authService'
 
@@ -78,42 +77,48 @@ const Signup = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className={styles.container}>
-      <h1>Sign Up</h1>
-      <p className={styles.message}>{message}</p>
+    <div className={styles.container}>
+          <div className={styles.imgContent}>
+         
+          </div>
+
+
+    <main className={styles.SignContent}>
+      <h2>Get Started</h2>
+      <p className={styles.message}>Already have an account? <Link className={styles.signup} to="/auth/signup"> Sign in</Link></p>
+
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
         <label className={styles.label}>
-          Name
-          <input type="text" value={name} name="name" onChange={handleChange} />
+          <input type="text" value={name} name="name" placeholder="Name" onChange={handleChange} />
         </label>
         <label className={styles.label}>
-          Email
           <input
             type="text"
             value={email}
             name="email"
+            placeholder="Email"
             onChange={handleChange}
           />
         </label>
         <label className={styles.label}>
-          Password
           <input
             type="password"
             value={password}
             name="password"
+            placeholder="Password" 
             onChange={handleChange}
           />
         </label>
         <label className={styles.label}>
-          Confirm Password
           <input
             type="password"
             value={passwordConf}
             name="passwordConf"
+            placeholder="Confirm password"
             onChange={handleChange}
           />
         </label>
-        <label className={styles.label}>
+        {/* <label className={styles.label}>
           Upload Photo
           <input 
             type="file" 
@@ -121,9 +126,9 @@ const Signup = ({ handleAuthEvt }) => {
             onChange={handleChangePhoto}
             ref={imgInputRef}
           />
-        </label>
+        </label> */}
         <div>
-          <Link to="/">Cancel</Link>
+          {/* <Link to="/">Cancel</Link> */}
           <button
             className={styles.button}
             disabled={ isFormInvalid() || isSubmitted }
@@ -132,7 +137,10 @@ const Signup = ({ handleAuthEvt }) => {
           </button>
         </div>
       </form>
+
     </main>
+    </div>
+
   )
 }
 
