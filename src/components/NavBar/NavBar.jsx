@@ -2,6 +2,7 @@
 import { NavLink } from 'react-router-dom'
 
 // assets
+import styles from "./NavBar.module.css";
 
 // css
 
