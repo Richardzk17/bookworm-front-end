@@ -42,9 +42,9 @@ const Signup = ({ handleAuthEvt }) => {
       errMsg = "Image must be in gif, jpeg/jpg, png, svg, or webp format"
       isFileInvalid = true
     }
-    
+
     setMessage(errMsg)
-    
+
     if (isFileInvalid) {
       imgInputRef.current.value = null
       return
@@ -78,47 +78,44 @@ const Signup = ({ handleAuthEvt }) => {
 
   return (
     <div className={styles.container}>
-          <div className={styles.imgContent}>
-         
-          </div>
+      <div className={styles.imgContent}>
+      </div>
+      <main className={styles.SignContent}>
+        <h2>Get Started</h2>
+        <p className={styles.message}>Already have an account? <Link className={styles.signup} to="/auth/login"> Sign in</Link></p>
 
-
-    <main className={styles.SignContent}>
-      <h2>Get Started</h2>
-      <p className={styles.message}>Already have an account? <Link className={styles.signup} to="/auth/signup"> Sign in</Link></p>
-
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          <input type="text" value={name} name="name" placeholder="Name" onChange={handleChange} />
-        </label>
-        <label className={styles.label}>
-          <input
-            type="text"
-            value={email}
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          <input
-            type="password"
-            value={password}
-            name="password"
-            placeholder="Password" 
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          <input
-            type="password"
-            value={passwordConf}
-            name="passwordConf"
-            placeholder="Confirm password"
-            onChange={handleChange}
-          />
-        </label>
-        {/* <label className={styles.label}>
+        <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+          <label className={styles.label}>
+            <input type="text" value={name} name="name" placeholder="Name" onChange={handleChange} />
+          </label>
+          <label className={styles.label}>
+            <input
+              type="text"
+              value={email}
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+            />
+          </label>
+          <label className={styles.label}>
+            <input
+              type="password"
+              value={password}
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+          </label>
+          <label className={styles.label}>
+            <input
+              type="password"
+              value={passwordConf}
+              name="passwordConf"
+              placeholder="Confirm password"
+              onChange={handleChange}
+            />
+          </label>
+          {/* <label className={styles.label}>
           Upload Photo
           <input 
             type="file" 
@@ -127,18 +124,18 @@ const Signup = ({ handleAuthEvt }) => {
             ref={imgInputRef}
           />
         </label> */}
-        <div>
-          {/* <Link to="/">Cancel</Link> */}
-          <button
-            className={styles.button}
-            disabled={ isFormInvalid() || isSubmitted }
-          >
-            {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
-          </button>
-        </div>
-      </form>
+          <div>
+            {/* <Link to="/">Cancel</Link> */}
+            <button
+              className={styles.button}
+              disabled={isFormInvalid() || isSubmitted}
+            >
+              {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
+            </button>
+          </div>
+        </form>
 
-    </main>
+      </main>
     </div>
 
   )
