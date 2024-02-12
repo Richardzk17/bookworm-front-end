@@ -10,10 +10,10 @@ import styles from "./NavBar.module.css";
 const NavBar = ({ user, handleLogout }) => {
 
   const publicLinks = (
-    <ul>
-      <li><NavLink to="/auth/login">LOG IN</NavLink></li>
-      <li><NavLink to="/auth/signup">SIGN UP</NavLink></li>
-    </ul>
+    <div className={styles.profileLink}>
+      <NavLink className={styles.profileLink} to="/">home</NavLink>
+      </div>
+   
   )
 
   const protectedLinks = (
@@ -26,7 +26,7 @@ const NavBar = ({ user, handleLogout }) => {
 
   return (
     <nav className={styles.container}>
-      <NavLink to="/">Logout</NavLink>
+      <NavLink to="/auth/login">Logout</NavLink>
       {user ? protectedLinks : publicLinks}
     </nav>
   )
