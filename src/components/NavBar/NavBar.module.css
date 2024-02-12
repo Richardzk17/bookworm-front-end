@@ -1,3 +1,19 @@
-.container{
-    
+nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    background: whitesmoke;
+    box-shadow: 0px 0px 1cqb rgba(0, 0, 0, 0.3);
+    padding: 15px;
+}
+
+ul, li{
+    all: unset
+}
+
+.profileLink{
+    all: unset;
+    color: #C6011F;
+    margin-right: 20px;
+    padding: 2px 15px;
 }
