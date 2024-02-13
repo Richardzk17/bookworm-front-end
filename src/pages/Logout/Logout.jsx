@@ -5,9 +5,11 @@ import styles from './Logout.module.css'
 
 const Logout = () => {
   return (
-    <main className={styles.container}>
-      <h1>Thank you for using Bookworm!</h1>
-    </main>
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h1>Thank you for using Bookworm!</h1>
+      </div>
+    </div>
   )
 }
 
