@@ -5,11 +5,15 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 // pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import BookDetails from './pages/BookDetails/BookDetails'
+import Logout from './pages/Logout/Logout'
+import About from './pages/About/About'
 import BookSearch from './pages/BookSearch/BookSearch'
+import LibraryList from './pages/LibraryList/LibraryList'
+import BookDetails from './pages/BookDetails/BookDetails'
+import Profiles from './pages/Profiles/Profiles'
+import MyProfile from './pages/MyProfile/MyProfile'
+
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -39,15 +43,11 @@ function App() {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
-        <Route
-          path="/profiles"
-          element={
-            <ProtectedRoute user={user}>
-              <Profiles />
-            </ProtectedRoute>
-          }
+      <Route
+          path="/"
+          element={<Login handleAuthEvt={handleAuthEvt} />}
         />
+        <Route path="/auth/logout" element={<Logout />} />
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}
@@ -65,8 +65,20 @@ function App() {
           }
         />
         <Route 
-          path="/bookSearch" 
-          element={<BookSearch />} 
+          path="/about" 
+          element={<About />} 
+        />
+        <Route 
+          path="/library" 
+          element={<LibraryList />} 
+        />
+        <Route 
+          path="/search" 
+          element={
+            <ProtectedRoute user={user}>
+              <BookSearch />
+            </ProtectedRoute>
+          }          
         />
         <Route 
           path="/book/:id" 
@@ -79,6 +91,22 @@ function App() {
               <Comments />
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path="/profiles" 
+          element={
+            <ProtectedRoute user={user}>
+              <Profiles />
+            </ProtectedRoute>
+          }          
+        />
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute user={user}>
+              <MyProfile />
+            </ProtectedRoute>
+          }          
         />
       </Routes>
     </>

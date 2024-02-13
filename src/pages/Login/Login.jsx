@@ -30,7 +30,7 @@ const LoginPage = ({ handleAuthEvt }) => {
       }
       await authService.login(formData)
       handleAuthEvt()
-      navigate('/')
+      navigate('/library')
     } catch (err) {
       console.log(err)
       setMessage(err.message)
@@ -50,7 +50,7 @@ const LoginPage = ({ handleAuthEvt }) => {
         <h1>Access your account</h1>
         <p className={styles.message}>
           Thinking of joining us?{" "}
-          <Link className={styles.signin} to="/auth/signup">
+          <Link to="/auth/signup">
             Sign up
           </Link>
         </p>
@@ -77,12 +77,16 @@ const LoginPage = ({ handleAuthEvt }) => {
             />
           </label>
           <div>
-            {/* <Link to="/">Cancel</Link> */}
             <button className={styles.button} disabled={isFormInvalid()}>
               Log In
             </button>
           </div>
         </form>
+        <div>
+        <Link to="/library">
+            Continue as Guest
+        </Link>
+        </div>
       </main>
     </div>
   );
