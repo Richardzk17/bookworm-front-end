@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // components
 import CommentPost from "../CommentPost/CommentPost"
@@ -39,6 +39,7 @@ const Comments = (props) => {
               handleDeleteComment={handleDeleteComment}
             />   
           )}
+          <NewComment handleAddComment={handleAddComment}/>
         </section>
       </Popover>
     </>
