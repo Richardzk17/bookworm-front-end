@@ -51,7 +51,7 @@ const LoginPage = ({ handleAuthEvt }) => {
         <p className={styles.message}>
           Thinking of joining us?{" "}
           <Link className={styles.signin} to="/auth/signup">
-            Sign in
+            Sign up
           </Link>
         </p>
   
