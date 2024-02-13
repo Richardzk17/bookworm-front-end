@@ -29,13 +29,12 @@ const BookDetails = () => {
 
     const getCoverUrl = (book) => {
         if (book && book.covers && book.covers.length > 0) {
-         const coverId = book.covers[0];
-          return `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`;
-        } else {
-          return 'https://via.placeholder.com/150';
-        }
-      };
-      
+        const coverId = book.covers[0];
+        return `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`;
+        } // else {
+        // return 'https://via.placeholder.com/150';
+        // } 
+    };
 
     // console.log(book)
     return (
