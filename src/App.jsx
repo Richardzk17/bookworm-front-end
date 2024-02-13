@@ -24,7 +24,6 @@ import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
-  const [comments, setComments] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -35,24 +34,6 @@ function App() {
 
   const handleAuthEvt = () => {
     setUser(authService.getUser())
-  }
-
-  const handleAddComment = async (commentFormData) => {
-    const newComment = await bookService.create(commentFormData)
-    setComments([newComment, ...comments])
-    navigate(`/book/${commentFormData.bookId}/comments`)
-  }
-
-  const handleUpdateComment = async (commentFormData) => {
-    const updatedComment = await bookService.update(commentFormData)
-    setBlogs(comments.map(comment => comment._id === updatedComment._id ? updatedComment : comment))
-    navigate(`/book/${commentFormData.bookId}/comments`)
-  }
-
-  const handleDeleteComment = async (bookId, commentId) => {
-    const deletedComment = await bookService.deleteComment(bookId, commentId)
-    setComments(comments.filter(comment => comment._id !== deletedComment._id))
-    navigate(`/book/${bookId}/comments`)
   }
 
   return (
@@ -96,11 +77,7 @@ function App() {
           path='/book/:id/comments'
           element={
             <ProtectedRoute user={user}>
-              <Comments 
-                handleDeleteComment={handleDeleteComment} 
-                handleAddComment={handleAddComment}
-                handleUpdateComment={handleUpdateComment}
-                user={user} />
+              <Comments />
             </ProtectedRoute>
           }
         />
