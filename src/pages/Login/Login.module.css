@@ -103,18 +103,15 @@ input[type="file"] {
 }
 
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 280px;
-    padding: 8px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    line-height: normal;
-    border-radius: 5px;
-    background-color: rgb(244, 244, 244);
-
+.input {
+  width: 280px;
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  line-height: normal;
+  border-radius: 5px;
+  background-color: rgb(244, 244, 244);
 }
 
 .button {
