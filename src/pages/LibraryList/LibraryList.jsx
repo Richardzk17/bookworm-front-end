@@ -4,7 +4,7 @@ import styles from './About.module.css'
 // components
 
 
-const Library = () => {
+const LibraryList = () => {
   return (
     <>
 
@@ -12,4 +12,4 @@ const Library = () => {
   )
 }
 
-export default Library
+export default LibraryList
