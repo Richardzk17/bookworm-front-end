@@ -74,6 +74,22 @@ async function createComment(bookId, commentFormData) {
   }
 }
 
+async function updateComment(commentFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${bookId}/comments/${commentFormData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(commentFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 async function deleteComment(bookId, commentId) {
   try {
     const res = await fetch(`${BASE_URL}/${bookId}/comments/${commentId}`, {
@@ -90,6 +106,22 @@ async function createReview(bookId, reviewFormData) {
   try {
     const res = await fetch(`${BASE_URL}/${bookId}/reviews`, {
       method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reviewFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function updateReview(reviewFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${bookId}/reviews/${reviewFormData._id}`, {
+      method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
@@ -120,7 +152,9 @@ export {
   create,
   update,
   createComment,
+  updateComment,
   deleteComment,
   createReview,
+  updateReview,
   deleteReview,
 }
