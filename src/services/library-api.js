@@ -1,12 +1,7 @@
-const baseUrl = 'https://openlibrary.org/'
+const baseUrl = 'https://openlibrary.org';
 
-// Examples for API functions
-// export async function getAllStarships () {
-//   const res = await fetch(`${baseUrl}/api/starships`)
-//   return res.json()
-// }
-
-// export async function getStarship(starshipId) {
-//   const res = await fetch(`${baseUrl}/api/starships/${starshipId}`)
-//   return res.json()
-// }
+export async function searchBooksByTitle(title) {
+  const response = await fetch(`${baseUrl}/search.json?title=${title}`);
+  const data = await response.json();
+  return data.docs;
+}
