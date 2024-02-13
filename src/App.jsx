@@ -14,6 +14,7 @@ import BookSearch from './pages/BookSearch/BookSearch'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Comments from "../Comments/Comments"
 
 // services
 import * as authService from './services/authService'
@@ -23,6 +24,7 @@ import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
+  const [comments, setComments] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -38,19 +40,19 @@ function App() {
   const handleAddComment = async (commentFormData) => {
     const newComment = await bookService.create(commentFormData)
     setComments([newComment, ...comments])
-    navigate('/book/:id/comments')
+    navigate(`/book/${commentFormData.bookId}/comments`)
   }
 
   const handleUpdateComment = async (commentFormData) => {
     const updatedComment = await bookService.update(commentFormData)
     setBlogs(comments.map(comment => comment._id === updatedComment._id ? updatedComment : comment))
-    navigate('/book/:id/comments')
+    navigate(`/book/${commentFormData.bookId}/comments`)
   }
 
-  const handleDeleteComment = async (commentId) => {
-    const deletedComment = await bookService.deleteComment(commentId)
+  const handleDeleteComment = async (bookId, commentId) => {
+    const deletedComment = await bookService.deleteComment(bookId, commentId)
     setComments(comments.filter(comment => comment._id !== deletedComment._id))
-    navigate('/book/:id/comments')
+    navigate(`/book/${bookId}/comments`)
   }
 
   return (
@@ -83,15 +85,25 @@ function App() {
           }
         />
         <Route 
-        path="/bookSearch" 
-        element={<BookSearch />} 
+          path="/bookSearch" 
+          element={<BookSearch />} 
         />
         <Route 
-        path="/book/:id" 
-        element={<BookDetails />} 
+          path="/book/:id" 
+          element={<BookDetails />} 
         />
-
-
+        <Route 
+          path='/book/:id/comments'
+          element={
+            <ProtectedRoute user={user}>
+              <Comments 
+                handleDeleteComment={handleDeleteComment} 
+                handleAddComment={handleAddComment}
+                handleUpdateComment={handleUpdateComment}
+                user={user} />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   )
