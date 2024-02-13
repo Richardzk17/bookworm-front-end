@@ -1,8 +1,12 @@
+import styles from '../BookSearch/BookSearch.css'
+
 const BookSearch = () => {
     return ( 
-        <>
-<h1>Hello</h1>        
-</>
+        <div className="container">
+        <div className="content">
+
+        </div>
+        </div>
      );
 }
  
