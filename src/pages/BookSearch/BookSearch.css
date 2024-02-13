@@ -16,3 +16,28 @@
     margin-bottom: 20px;
   
   }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 30px;
+  }
+
+  .input-field::placeholder {
+    text-align: center;
+    color: gray; 
+  }
+  
+
+  .input-field{
+    width: 400px;
+    height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 60px;
+    box-sizing: border-box;
+    line-height: normal;
+    background-color: rgb(244, 244, 244);
+    text-align: center;
+  
+  }
