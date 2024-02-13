@@ -22,9 +22,11 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-/* a,
-a:visited {
-} */
+a {
+  color: #C6011F;
+  font-weight: 600;
+  text-decoration: none;
+}
 
 nav > ul {
   margin: 0;

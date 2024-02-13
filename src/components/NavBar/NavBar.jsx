@@ -10,24 +10,27 @@ import styles from "./NavBar.module.css";
 const NavBar = ({ user, handleLogout }) => {
 
   const publicLinks = (
-    <div className={styles.profileLink}>
-      <NavLink className={styles.profileLink} to="/">home</NavLink>
-      <NavLink className={styles.profileLink} to="/bookSearch">Library</NavLink>
-
-      </div>
+    <ul>
+      <li><NavLink to='/about'>About</NavLink></li>
+      <li><NavLink to='/library'>Library</NavLink></li>
+      <li><NavLink to='/'>Login/Sign up</NavLink></li>
+    </ul>
   )
 
   const protectedLinks = (
     <ul>
-      <li>
-        <NavLink to="/auth/logout" onClick={handleLogout}>LOG OUT</NavLink>
-      </li>
+      <li><NavLink to='/about'>About</NavLink></li>
+      <li><NavLink to='/search'>Search</NavLink></li>
+      <li><NavLink to='/library'>Library</NavLink></li>
+      <li><NavLink to='/profiles'>Profiles</NavLink></li>  
+      <li><NavLink to='/profile'>My Profile</NavLink></li>    
+      <li><NavLink to="/auth/logout" onClick={handleLogout}>LOG OUT</NavLink></li>
+
     </ul>
   )
 
   return (
     <nav className={styles.container}>
-      <NavLink to="/auth/login">Logout</NavLink>
       {user ? protectedLinks : publicLinks}
     </nav>
   )

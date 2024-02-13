@@ -83,6 +83,11 @@ const LoginPage = ({ handleAuthEvt }) => {
             </button>
           </div>
         </form>
+        <div>
+        <Link className={styles.signin} to="/">
+            Continue as Guest
+        </Link>
+        </div>
       </main>
     </div>
   );
