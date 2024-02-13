@@ -8,6 +8,8 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import BookDetails from './pages/BookDetails/BookDetails'
+import BookSearch from './pages/BookSearch/BookSearch'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -62,6 +64,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route 
+        path="/bookSearch" 
+        element={<BookSearch />} 
+        />
+        <Route 
+        path="/book/:id" 
+        element={<BookDetails />} 
+        />
+
+
       </Routes>
     </>
   )
