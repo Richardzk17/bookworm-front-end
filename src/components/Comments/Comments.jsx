@@ -1,9 +1,13 @@
 // npm modules
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+
+//services
+import * as bookService from '../../services/bookService'
 
 // components
+import NewComment from "../../components/NewComment/NewComment"
 import CommentPost from "../CommentPost/CommentPost"
-import { updateComment } from '../../services/bookService'
+
 // styles
 
 const Comments = (props) => {
