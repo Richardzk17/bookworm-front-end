@@ -12,6 +12,8 @@ const NavBar = ({ user, handleLogout }) => {
   const publicLinks = (
     <div className={styles.profileLink}>
       <NavLink className={styles.profileLink} to="/">home</NavLink>
+      <NavLink className={styles.profileLink} to="/bookSearch">Library</NavLink>
+
       </div>
   )
 
