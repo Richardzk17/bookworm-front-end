@@ -6,8 +6,10 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profiles'
+import Logout from './pages/Logout/Logout'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import About from './pages/About/About'
+import LibraryList 
 import BookDetails from './pages/BookDetails/BookDetails'
 import BookSearch from './pages/BookSearch/BookSearch'
 
@@ -58,8 +60,18 @@ function App() {
           }
         />
         <Route 
+          path="/about" 
+          element={<About />} 
+        />
+        <Route 
+          path="/library" 
+          element={<LibraryList />} 
+        />
+        <Route 
           path="/search" 
-          element={<BookSearch />} 
+          element={<BookSearch />
+          <ProtectedRoute user={user}></ProtectedRoute>
+        }          
         />
         <Route 
           path="/book/:id" 
