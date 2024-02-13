@@ -5,8 +5,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 // pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Logout from './pages/Logout/Logout'
 import About from './pages/About/About'
 import BookSearch from './pages/BookSearch/BookSearch'
 import LibraryList from './pages/LibraryList/LibraryList'
@@ -43,7 +43,7 @@ function App() {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-      <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Login />} />
         <Route path="/auth/logout" element={<Logout />} />
         <Route
           path="/auth/signup"
