@@ -14,6 +14,7 @@ import BookSearch from './pages/BookSearch/BookSearch'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import Comments from "../Comments/Comments"
 
 // services
 import * as authService from './services/authService'
@@ -65,15 +66,21 @@ function App() {
           }
         />
         <Route 
-        path="/bookSearch" 
-        element={<BookSearch />} 
+          path="/bookSearch" 
+          element={<BookSearch />} 
         />
         <Route 
-        path="/book/:id" 
-        element={<BookDetails />} 
+          path="/book/:id" 
+          element={<BookDetails />} 
         />
-
-
+        <Route 
+          path='/book/:id/comments'
+          element={
+            <ProtectedRoute user={user}>
+              <Comments />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   )

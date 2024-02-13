@@ -1,15 +1,16 @@
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
 
-const CommentCard = ({ comment }) => {
+const CommentPost = (props) => {
   return (
     <article>
       <header>
-        <AuthorInfo content={comment}/>
+        <AuthorInfo content={props.comment}/>
       </header>
-      <button onClick={() => props.handleDeleteComment(comment._id)}></button>
-      <p>{comment.text}</p>
+      <button onClick={() => props.handleUpateComment(props.comment._id)}>📝</button>
+      <button onClick={() => props.handleDeleteComment(props.comment._id)}>🗑️</button>
+      <p>{props.comment.text}</p>
     </article>
   )
 }
 
-export default CommentCard
+export default CommentPost
