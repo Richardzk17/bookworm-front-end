@@ -45,42 +45,48 @@ const LoginPage = ({ handleAuthEvt }) => {
 
   return (
     <div className={styles.container}>
-            <div className={styles.imgContent}>
-      </div>
-          <main className={styles.SignInContent}>
-      <h1>Access your account</h1>
-      <p className={styles.message}>Thinking of joining us? <Link className={styles.signin} to="/auth/signup"> Sign in</Link></p>
-
-
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          <input
-            type="text"
-            value={email}
-            name="email"
-            placeholder='Email'
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          <input
-            type="password"
-            value={password}
-            name="password"
-            placeholder='Password'
-            onChange={handleChange}
-          />
-        </label>
-        <div>
-          {/* <Link to="/">Cancel</Link> */}
-          <button className={styles.button} disabled={isFormInvalid()}>
-            Log In
-          </button>
-        </div>
-      </form>
-    </main>
+      <div className={styles.imgContent}></div>
+      <main className={styles.SignInContent}>
+        <h1>Access your account</h1>
+        <p className={styles.message}>
+          Thinking of joining us?{" "}
+          <Link className={styles.signin} to="/auth/signup">
+            Sign up
+          </Link>
+        </p>
+  
+        <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+          <label className={styles.label}>
+            <input
+              type="text"
+              value={email}
+              name="email"
+              placeholder="Email"
+              onChange={handleChange}
+              className={styles.input}
+            />
+          </label>
+          <label className={styles.label}>
+            <input
+              type="password"
+              value={password}
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+              className={styles.input}
+            />
+          </label>
+          <div>
+            {/* <Link to="/">Cancel</Link> */}
+            <button className={styles.button} disabled={isFormInvalid()}>
+              Log In
+            </button>
+          </div>
+        </form>
+      </main>
     </div>
-  )
+  );
+  
 }
 
 export default LoginPage

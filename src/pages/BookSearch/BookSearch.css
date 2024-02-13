@@ -1,18 +1,97 @@
+
 .container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  flex-direction: row;
+}
+
+.content {
+  width: 80%;
+  height: 100vh;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin-bottom: 20px;
+  padding: 25px;
+
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 30px;
+}
+
+.input-field::placeholder {
+  text-align: center;
+  color: gray; 
+}
+
+.input-field {
+  width: 400px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 60px;
+  box-sizing: border-box;
+  line-height: normal;
+  background-color: rgb(244, 244, 244);
+  text-align: center;
+}
+
+.book-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.book-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+
+}
+
+.book-list li p {
+  margin: 5px 0;
+}
+
+.book-list img {
+  width: 150px;
+  height: auto;
+}
+
+.title{
+  text-align: center;
+
   
-  }
-  
-  .content{
-    width: 80%;
-    height: 100vh;
-    background-color: white;
-    overflow: auto;
-    box-shadow: 0px 0px 1cqb rgba(0, 0, 0, 0.3);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    margin-bottom: 20px;
-  
-  }
+}
+.book-list li a {
+  text-decoration: none;
+  color: rgb(169, 6, 6);
+  font-weight: bold;
+}
+
+
+.bookCover{
+  background-color: rgb(255, 255, 255);
+  width: 30%;
+  height: 100vh;
+  border-right: 1px rgb(232, 232, 232) solid;
+}
+
+.bookDetails {
+  background-color: rgb(255, 255, 255);
+  width: 70%;
+  height: 100vh;
+  padding: 30px;
+}

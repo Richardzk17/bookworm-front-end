@@ -14,8 +14,7 @@ import BookSearch from './pages/BookSearch/BookSearch'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-import Comments from "../Comments/Comments"
-
+import Comments from "../src/components/Comments/Comments"
 // services
 import * as authService from './services/authService'
 
