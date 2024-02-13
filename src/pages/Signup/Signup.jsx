@@ -83,7 +83,7 @@ const Signup = ({ handleAuthEvt }) => {
         <h2>Get Started</h2>
         <p className={styles.message}>
           Already have an account?{" "}
-          <Link className={styles.signup} to="/auth/login">
+          <Link to="/auth/login">
             Sign in
           </Link>
         </p>
@@ -139,7 +139,6 @@ const Signup = ({ handleAuthEvt }) => {
             />
           </label> */}
           <div>
-            {/* <Link to="/">Cancel</Link> */}
             <button
               className={styles.button}
               disabled={isFormInvalid() || isSubmitted}
@@ -148,6 +147,7 @@ const Signup = ({ handleAuthEvt }) => {
             </button>
           </div>
         </form>
+        <Link to="/auth/login">Cancel</Link>
       </main>
     </div>
   );

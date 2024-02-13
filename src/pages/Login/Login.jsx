@@ -50,7 +50,7 @@ const LoginPage = ({ handleAuthEvt }) => {
         <h1>Access your account</h1>
         <p className={styles.message}>
           Thinking of joining us?{" "}
-          <Link className={styles.signin} to="/auth/signup">
+          <Link to="/auth/signup">
             Sign up
           </Link>
         </p>
@@ -77,14 +77,13 @@ const LoginPage = ({ handleAuthEvt }) => {
             />
           </label>
           <div>
-            <Link to="/library">Cancel</Link>
             <button className={styles.button} disabled={isFormInvalid()}>
               Log In
             </button>
           </div>
         </form>
         <div>
-        <Link className={styles.signin} to="/library">
+        <Link to="/library">
             Continue as Guest
         </Link>
         </div>

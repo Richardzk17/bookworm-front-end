@@ -26,6 +26,7 @@ a {
   color: #C6011F;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
 }
 
 nav > ul {
