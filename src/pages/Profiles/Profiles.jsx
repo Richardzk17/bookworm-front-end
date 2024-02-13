@@ -23,12 +23,14 @@ const Profiles = () => {
   }
   
   return (
-    <main className={styles.container}>
-      <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map(profile => (
-        <p key={profile._id}>{profile.name}</p>
-      ))}
-    </main>
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h1>All Bookworm Profile Users</h1>
+        {profiles.map(profile => (
+          <p key={profile._id}>{profile.name}</p>
+        ))}
+      </div>
+    </div>
   )
 }
 
