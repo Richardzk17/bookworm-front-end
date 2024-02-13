@@ -1,10 +1,9 @@
 nav {
   display: flex;
-  justify-content: flex-end;
   flex-direction: row;
   background: whitesmoke;
-  box-shadow: 0px 0px 1cqb rgba(0, 0, 0, 0.3);
-  padding: 15px 20px;  
+  box-shadow: 0px 0px 1cqb rgba(0, 0, 0, 1);
+  padding: 5px 20px;  
 }
 
 .container ul {
@@ -20,4 +19,11 @@ nav {
 .container li {
   margin-left: 35px;
   text-align: right;
+}
+
+.welcome-user {
+  display: flex;
+  list-style: none;
+  font-weight: bold;
+  align-items: center;
 }

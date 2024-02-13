@@ -43,7 +43,10 @@ function App() {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Login />} />
+      <Route
+          path="/"
+          element={<Login handleAuthEvt={handleAuthEvt} />}
+        />
         <Route path="/auth/logout" element={<Logout />} />
         <Route
           path="/auth/signup"
@@ -98,7 +101,7 @@ function App() {
           }          
         />
         <Route 
-          path="/myprofile" 
+          path="/profile" 
           element={
             <ProtectedRoute user={user}>
               <MyProfile />
