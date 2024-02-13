@@ -24,12 +24,9 @@ Stay tuned for additional features!
 
 - ERD & Wireframes created using [Whimsical](https://whimsical.com/)
 - Fonts used in Bookworm are sourced from [Google Fonts](https://fonts.google.com/)
-- Bookworm uses sliding functionality from [Swiper](https://swiperjs.com/demos#watch-slides-visibility)
-- Bookworm uses Swiper code from [Code Sandbox](https://codesandbox.io/p/sandbox/6fzts5?file=%2Findex.html)
 
 ## Ice Box 🧊
 
-- [ ] Change & Update Password
 - [ ] Profile Picture
 - [ ] Profile Details
 - [ ] Reviews created display on Profile
