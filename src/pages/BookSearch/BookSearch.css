@@ -1,43 +1,67 @@
 .container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-  
-  }
-  
-  .content{
-    width: 80%;
-    height: 100vh;
-    background-color: white;
-    overflow: auto;
-    box-shadow: 0px 0px 1cqb rgba(0, 0, 0, 0.3);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    margin-bottom: 20px;
-  
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
 
-  .center {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding: 30px;
-  }
+.content {
+  width: 80%;
+  height: 100vh;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
 
-  .input-field::placeholder {
-    text-align: center;
-    color: gray; 
-  }
-  
+}
 
-  .input-field{
-    width: 400px;
-    height: 40px;
-    border: 1px solid #cccccc;
-    border-radius: 60px;
-    box-sizing: border-box;
-    line-height: normal;
-    background-color: rgb(244, 244, 244);
-    text-align: center;
-  
-  }
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 30px;
+}
+
+.input-field::placeholder {
+  text-align: center;
+  color: gray; 
+}
+
+.input-field {
+  width: 400px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 60px;
+  box-sizing: border-box;
+  line-height: normal;
+  background-color: rgb(244, 244, 244);
+  text-align: center;
+}
+
+.book-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.book-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.book-list li p {
+  margin: 5px 0;
+}
+
+.book-list img {
+  width: 150px;
+  height: auto;
+}

@@ -15,40 +15,37 @@ const BookSearch = () => {
       return newKey[newKey.length - 1]
     }
 
-    return ( 
-        <div className="container">
+    return (
+      <div className="container">
         <div className="content">
-        <div>
-      <Search term={searchTerm} searchKeyword={setSearchTerm} />
-      {loading && <p>Loading Books...</p>}
-      <ul>
-        {books.slice(0, 10).map((book, index) => {
-          return (
-            <li key={index}>
-              <Link to={`/book/${getIdOfBook(book.key)}`}>
-                <p>Title: {book.title}</p>
-              </Link>
-              {book.author_name && (
-                <p>Author: {book.author_name.join(", ")}</p>
-              )}
-              {book.first_publish_year && (
-                <p>First Publish Year: {book.first_publish_year}</p>
-              )}
-              <img
-                src={getCoverUrl(book)}
-                alt={`Cover of ${book.title}`}
-                style={{ width: "150px", height: "auto" }}
-              />
-            </li>
-          )
-        }
-        )}
-      </ul>
-    </div>
-
+          <div className="center">
+            <Search term={searchTerm} searchKeyword={setSearchTerm} />
+          </div>
+          {loading && <p>Loading Books...</p>}
+          <ul className="book-list">
+            {books.slice(0, 20).map((book, index) => (
+              <li key={index}>
+                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                  <p>Title: {book.title}</p>
+                </Link>
+                {book.author_name && (
+                  <p>Author: {book.author_name.join(", ")}</p>
+                )}
+                {book.first_publish_year && (
+                  <p>First Publish Year: {book.first_publish_year}</p>
+                )}
+                <img
+                  src={getCoverUrl(book)}
+                  alt={`Cover of ${book.title}`}
+                  style={{ width: "150px", height: "auto" }}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
-        </div>
-     );
+      </div>
+    )
+    
 }
  
 export default BookSearch;
