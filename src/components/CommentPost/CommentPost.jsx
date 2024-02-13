@@ -1,13 +1,13 @@
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
 
-const CommentPost = ({ comment }) => {
+const CommentPost = (props) => {
   return (
     <article>
       <header>
-        <AuthorInfo content={comment}/>
+        <AuthorInfo content={props.comment}/>
       </header>
-      <button onClick={() => props.handleDeleteComment(comment._id)}></button>
-      <p>{comment.text}</p>
+      <button onClick={() => props.handleDeleteComment(props.comment._id)}></button>
+      <p>{props.comment.text}</p>
     </article>
   )
 }

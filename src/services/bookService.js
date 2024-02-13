@@ -58,9 +58,9 @@ async function update(bookFormData) {
   }
 }
 
-async function createComment(bookId, commentFormData) {
+async function createComment(commentFormData) {
   try {
-    const res = await fetch(`${BASE_URL}/${bookId}/comments`, {
+    const res = await fetch(`${BASE_URL}/${commentFormData.bookId}/comments`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
@@ -76,7 +76,7 @@ async function createComment(bookId, commentFormData) {
 
 async function updateComment(commentFormData) {
   try {
-    const res = await fetch(`${BASE_URL}/${bookId}/comments/${commentFormData._id}`, {
+    const res = await fetch(`${BASE_URL}/${commentFormData.bookId}/comments/${commentFormData._id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

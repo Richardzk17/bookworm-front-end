@@ -35,6 +35,24 @@ function App() {
     setUser(authService.getUser())
   }
 
+  const handleAddComment = async (commentFormData) => {
+    const newComment = await bookService.create(commentFormData)
+    setComments([newComment, ...comments])
+    navigate('/book/:id/comments')
+  }
+
+  const handleUpdateComment = async (commentFormData) => {
+    const updatedComment = await bookService.update(commentFormData)
+    setBlogs(comments.map(comment => comment._id === updatedComment._id ? updatedComment : comment))
+    navigate('/book/:id/comments')
+  }
+
+  const handleDeleteComment = async (commentId) => {
+    const deletedComment = await bookService.deleteComment(commentId)
+    setComments(comments.filter(comment => comment._id !== deletedComment._id))
+    navigate('/book/:id/comments')
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />

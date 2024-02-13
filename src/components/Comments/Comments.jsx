@@ -7,8 +7,6 @@ const Comments = (props) => {
         {props.comments.map(comment =>
           <CommentPost 
             comment={comment} 
-            key={comment._id} 
-            user={props.user}
           />  
         )}
       </popover>
