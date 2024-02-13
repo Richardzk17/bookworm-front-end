@@ -15,7 +15,6 @@ const NavBar = ({ user, handleLogout }) => {
       <NavLink className={styles.profileLink} to="/bookSearch">Library</NavLink>
 
       </div>
-   
   )
 
   const protectedLinks = (
