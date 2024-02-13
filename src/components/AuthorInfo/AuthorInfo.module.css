@@ -1,0 +1,28 @@
+/* copied from hoot for now, need to fix when working on styling */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.container * {
+  margin: 0;
+}
+
+.container > img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  margin-right: 12px;
+  border-radius: 50%;
+  background-color: var(--background);
+}
+
+.container h4 {
+  opacity: 0.75;
+}
+
+.container section {
+  display: flex;
+  flex-direction: column;
+}

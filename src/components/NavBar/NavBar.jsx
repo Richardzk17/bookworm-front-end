@@ -13,7 +13,6 @@ const NavBar = ({ user, handleLogout }) => {
     <div className={styles.profileLink}>
       <NavLink className={styles.profileLink} to="/">home</NavLink>
       </div>
-   
   )
 
   const protectedLinks = (
