@@ -1,5 +1,5 @@
 // css 
-import styles from './About.module.css'
+//import styles from './About.module.css'
 
 // components
 

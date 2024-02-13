@@ -6,12 +6,13 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Logout from './pages/Logout/Logout'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import About from './pages/About/About'
 import BookSearch from './pages/BookSearch/BookSearch'
 import LibraryList from './pages/LibraryList/LibraryList'
 import BookDetails from './pages/BookDetails/BookDetails'
+import Profiles from './pages/Profiles/Profiles'
+import MyProfile from './pages/MyProfile/MyProfile'
 
 
 // components
@@ -70,9 +71,11 @@ function App() {
         />
         <Route 
           path="/search" 
-          element={<BookSearch />
-          <ProtectedRoute user={user}></ProtectedRoute>
-        }          
+          element={
+            <ProtectedRoute user={user}>
+              <BookSearch />
+            </ProtectedRoute>
+          }          
         />
         <Route 
           path="/book/:id" 
@@ -85,6 +88,22 @@ function App() {
               <Comments />
             </ProtectedRoute>
           }
+        />
+        <Route 
+          path="/profiles" 
+          element={
+            <ProtectedRoute user={user}>
+              <Profiles />
+            </ProtectedRoute>
+          }          
+        />
+        <Route 
+          path="/myprofile" 
+          element={
+            <ProtectedRoute user={user}>
+              <MyProfile />
+            </ProtectedRoute>
+          }          
         />
       </Routes>
     </>
