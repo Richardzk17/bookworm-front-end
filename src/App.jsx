@@ -9,9 +9,10 @@ import Landing from './pages/Landing/Landing'
 import Logout from './pages/Logout/Logout'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import About from './pages/About/About'
-import LibraryList 
-import BookDetails from './pages/BookDetails/BookDetails'
 import BookSearch from './pages/BookSearch/BookSearch'
+import LibraryList from './pages/LibraryList/LibraryList'
+import BookDetails from './pages/BookDetails/BookDetails'
+
 
 // components
 import NavBar from './components/NavBar/NavBar'
