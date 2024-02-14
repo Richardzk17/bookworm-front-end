@@ -79,6 +79,23 @@ const LibraryList = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
+      <h2>Bookworm Library</h2>
+        <div className={styles.library}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={6}
+            navigation
+          >
+            {thrillerBooks.map((book, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
+                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>      
       <h2>Thriller Books</h2>
         <div className={styles.library}>
           <Swiper
@@ -92,6 +109,7 @@ const LibraryList = () => {
                 <Link to={`/book/${getIdOfBook(book.key)}`}>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
+                <button className="libraryBtn">Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -110,6 +128,7 @@ const LibraryList = () => {
                 <Link to={`/book/${getIdOfBook(book.key)}`}>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
+                <button className="libraryBtn">Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -128,6 +147,7 @@ const LibraryList = () => {
                 <Link to={`/book/${getIdOfBook(book.key)}`}>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
+                <button className="libraryBtn">Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -146,6 +166,7 @@ const LibraryList = () => {
                 <Link to={`/book/${getIdOfBook(book.key)}`}>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
+                <button className="libraryBtn">Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>
