@@ -24,7 +24,7 @@ const MyProfile = (props) => {
     <main>
       <div className={styles.container}>
         <div className={styles.content}>
-          <h1>{`person's Bookshelf`}</h1>
+          <h1>{`${myProfile.name}'s Bookshelf`}</h1>
           <div>
           {myProfile.bookshelf?.map(book =>
           <Bookshelf key={book._id} book={book} />
