@@ -23,7 +23,7 @@ const Profiles = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1>All Bookworm Profile Users</h1>
+        <h1 className={styles.title}>All Bookworms!</h1>
         <div>
           {profiles.map(profile => (
             <ProfileCard key={profile._id} profile={profile} />

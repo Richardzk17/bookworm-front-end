@@ -1,7 +1,21 @@
-.profile {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 2px solid black;
   border-radius: 32px;
-  text-align: center;
   background-color: #C6011F;
   color: white;
+  margin: 16px;
+  padding: 16px;
+}
+
+.profile {
+  color: white
+}
+
+.profilePic {
+  width: 36px;
+  height: 36px;
 }
