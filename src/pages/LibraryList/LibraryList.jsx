@@ -25,9 +25,17 @@ export async function searchStuffBooks() {
   return data.works;
 }
 
+export async function searchAdventureBooks() {
+  const response = await fetch(`${baseUrl}/subjects/adventure.json?limit=10`);
+  const data = await response.json();
+  return data.works;
+}
+
 const LibraryList = () => {
   const [books, setBooks] = useState([]);
   const [classicBooks, setClassicBooks] = useState([]);
+  const [adventureBooks, setAdventureBooks] = useState([]);
+
 
 
   useEffect(() => {
@@ -40,6 +48,12 @@ const LibraryList = () => {
     searchStuffBooks()
       .then((works) => {
         setClassicBooks(works);
+        console.log(works);
+      })
+      .catch((error) => console.error("Error fetching fantasy books:", error));
+      searchAdventureBooks()
+      .then((works) => {
+        setAdventureBooks(works);
         console.log(works);
       })
       .catch((error) => console.error("Error fetching fantasy books:", error));
@@ -59,7 +73,7 @@ const LibraryList = () => {
             {books.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <Link to={`/book/${getIdOfBook(book.key)}`}>
-                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "150px", height: "100px" }} />
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
               </SwiperSlide>
             ))}
@@ -73,14 +87,33 @@ const LibraryList = () => {
             slidesPerView={6}
             navigation
           >
-            {classicBooks.map((book, index) => (
+            {adventureBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <Link to={`/book/${getIdOfBook(book.key)}`}>
-                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "150px", height: "100px" }} />
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
               </SwiperSlide>
             ))}
           </Swiper>
+          
+        </div>
+        <h2>Adventure</h2>
+        <div className={styles.library}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={6}
+            navigation
+          >
+            {classicBooks.map((book, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
+                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          
         </div>
       </div>
     </div>

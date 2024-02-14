@@ -32,15 +32,14 @@
 }
 
 .swiperSlide {
-  background-color: aqua;
+  /* background-color: aqua; */
   color: black;
-  border: 1px solid rgb(0, 0, 0);
   height: auto; 
-  width: 150px;
+  width: 230px;
   margin: 0 10px;
 }
-
+/* 
 .swiperSlide img {
-  max-width: 100%; 
-  max-height: 150px;
-}
+  width: 230px; 
+  height: 150px;
+} */
