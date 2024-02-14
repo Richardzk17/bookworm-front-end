@@ -1,0 +1,42 @@
+.Maincontainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.Secondcontainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+
+}
+
+.aboutUs{
+height: 300px;
+width: 800px;
+background: #f1f1f1;
+justify-content: center;
+align-items: center;
+padding: 20px;
+border-radius: 5px;
+}
+
+
+.details{
+  height: 340px;
+  width: 280px;
+  background: #f1f1f1;
+  margin: 20px;
+}
+.title{
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #690212;
+
+}
+
+.description{
+  text-align: center;
+}
+
