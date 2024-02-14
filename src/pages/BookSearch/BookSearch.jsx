@@ -4,16 +4,16 @@ import Search from "../BookSearch/Search";
 import useBookSearch from "../../components/SearchBook/SearchBook";
 
 import styles from '../BookSearch/BookSearch.css'
+import LibraryList from "../LibraryList/LibraryList";
+
+export const getIdOfBook = (key) => {
+  let newKey = key.split("/")
+  return newKey[newKey.length - 1]
+}
 
 const BookSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { books, loading } = useBookSearch(searchTerm);
-
-
-  const getIdOfBook = (key) => {
-    let newKey = key.split("/")
-    return newKey[newKey.length - 1]
-  }
 
   return (
     <div className="container">
@@ -39,7 +39,6 @@ const BookSearch = () => {
               {book.first_publish_year && (
                 <p>First Publish Year: {book.first_publish_year}</p>
               )}
-
             </li>
           ))}
         </ul>
