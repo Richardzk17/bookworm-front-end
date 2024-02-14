@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 60px;
+  background-color: #C6011F;
+  color: white;
+  margin: 16px;
+  padding: 16px;
+  width: 150px;
+}
+
+.container:hover {
+  transform: translateY(-8px);
+}
+
+.profile {
+  color: white
+}
+
+.profilePic {
+  width: 60px;
+  height: 60px;
+} 
+
+
+
+
+
