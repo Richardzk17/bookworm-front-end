@@ -9,62 +9,26 @@ import * as profileService from '../../services/profileService'
 
 // services
 
-
-const MyProfile = (props) => {
-
-  const [profiles, setProfiles] = useState([])
-
+const MyProfile = () => {
+  const [myProfile, setMyProfile] = useState([])
   useEffect(() => {
-    const fetchProfiles = async () => {
-      const profileData = await profileService.getAllProfiles()
-      setProfiles(profileData)
+    const fetchMyProfile = async () => {
+      const profileData = await profileService.show()
+      setMyProfile(profileData)
     }
-    fetchProfiles()
+    fetchMyProfile()
   }, [])
-
-
-  // Check if user and user.bookshelf exist before using them
-  // if (!profile || !profile.bookshelf) {
-  //   return <div>Loading...</div> // or handle the loading state accordingly
-  // }
-
 
   return (
     <main>
-      <h1>{`${props.profile.name}'s Bookshelf`}</h1>
-      {props.profile.bookshelf.map(book =>
+      <h1>{`person's Bookshelf`}</h1>
+      <div>
+        {myProfile.bookshelf.map(book =>
         <Bookshelf key={book._id} book={book} />
-      )}
+        )}
+      </div>
     </main>
   )
 }
 
 export default MyProfile
-
-
-const Profiles = () => {
-
-
-  const [profiles, setProfiles] = useState([])
-
-  useEffect(() => {
-    const fetchProfiles = async () => {
-      const profileData = await profileService.getAllProfiles()
-      setProfiles(profileData)
-    }
-    fetchProfiles()
-  }, [])
-
-  return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <h1 className={styles.title}>All Bookworms!</h1>
-        <div>
-          {profiles.map(profile => (
-            <ProfileCard key={profile._id} profile={profile} />
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}

@@ -14,12 +14,11 @@ async function getAllProfiles() {
   }
 }
 
-
-
 async function show(profileId) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}`, {
       headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+      .populate([`profile`])
     })
     return res.json()
   } catch (error) {

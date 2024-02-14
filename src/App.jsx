@@ -105,7 +105,7 @@ function App() {
           path="/profile" 
           element={
             <ProtectedRoute user={user}>
-              <MyProfile bookshelf={bookshelf} />
+              <MyProfile user={user}/>
             </ProtectedRoute>
           }          
         />
