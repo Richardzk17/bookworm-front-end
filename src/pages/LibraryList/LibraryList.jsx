@@ -1,15 +1,90 @@
-// css 
-//import styles from './LibraryList.module.css'
+import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
-// components
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/swiper-bundle.css';
 
+import styles from './LibraryList.module.css';
+import { getIdOfBook } from '../BookSearch/BookSearch';
 
-const LibraryList = () => {
-  return (
-    <>
+const baseUrl = 'https://openlibrary.org';
 
-    </>
-  )
+export async function searchFantasyBooks() {
+  const response = await fetch(`${baseUrl}/subjects/fantasy.json?limit=10`);
+  const data = await response.json();
+  return data.works;
 }
 
-export default LibraryList
+export async function searchStuffBooks() {
+  const response = await fetch(`${baseUrl}/subjects/classic.json?limit=10`);
+  const data = await response.json();
+  return data.works;
+}
+
+const LibraryList = () => {
+  const [books, setBooks] = useState([]);
+  const [classicBooks, setClassicBooks] = useState([]);
+
+
+  useEffect(() => {
+    searchFantasyBooks()
+      .then((works) => {
+        setBooks(works);
+        console.log(works);
+      })
+      .catch((error) => console.error("Error fetching fantasy books:", error));
+    searchStuffBooks()
+      .then((works) => {
+        setClassicBooks(works);
+        console.log(works);
+      })
+      .catch((error) => console.error("Error fetching fantasy books:", error));
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h2>Fantasy Books</h2>
+        <div className={styles.library}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={6}
+            navigation
+          >
+            {books.map((book, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
+                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "150px", height: "100px" }} />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <h2>Something else</h2>
+        <div className={styles.library}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={6}
+            navigation
+          >
+            {classicBooks.map((book, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
+                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "150px", height: "100px" }} />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LibraryList;
