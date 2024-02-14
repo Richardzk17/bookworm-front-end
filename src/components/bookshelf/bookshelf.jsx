@@ -1,6 +1,15 @@
-const Bookshelf = () => {
+// npm modules
+// import { Link } from "react-router-dom"
+
+// components
+
+
+// css
+
+
+const Bookshelf = (props) => {
   return (
-    <h1>My Books</h1>
+      <h1>{props.book.title}</h1>
   )
 }
 
