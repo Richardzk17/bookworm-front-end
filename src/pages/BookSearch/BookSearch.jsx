@@ -39,6 +39,7 @@ const BookSearch = () => {
               {book.first_publish_year && (
                 <p>First Publish Year: {book.first_publish_year}</p>
               )}
+              <button className="libraryBtn">Add to Library Favorites</button>
             </li>
           ))}
         </ul>
