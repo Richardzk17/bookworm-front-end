@@ -19,6 +19,7 @@ import MyProfile from './pages/MyProfile/MyProfile'
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Comments from "../src/components/Comments/Comments"
+
 // services
 import * as authService from './services/authService'
 
@@ -104,7 +105,7 @@ function App() {
           path="/profile" 
           element={
             <ProtectedRoute user={user}>
-              <MyProfile />
+              <MyProfile user={user} />
             </ProtectedRoute>
           }          
         />
