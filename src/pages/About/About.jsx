@@ -18,7 +18,12 @@ const About = () => {
 
     <div className={styles.Secondcontainer}>
 
-          <div className={styles.details}></div>
+          <div className={styles.details}>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <img src="" alt="" />
+
+          </div>
           <div className={styles.details}></div>
           <div className={styles.details}></div>
           <div className={styles.details}></div>         
