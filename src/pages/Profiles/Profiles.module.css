@@ -1,5 +1,7 @@
 .container {
+  text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 50px;
 }
@@ -14,3 +16,10 @@
   border-top-left-radius: 5px;
   margin-bottom: 20px;
 }
+
+.profileGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+

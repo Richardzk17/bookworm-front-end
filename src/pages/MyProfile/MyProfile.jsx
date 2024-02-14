@@ -1,4 +1,5 @@
-// css 
+// css
+import styles from './MyProfile.module.css'
 
 // npm modules
 import { useState, useEffect } from 'react'
@@ -21,11 +22,15 @@ const MyProfile = (props) => {
 
   return (
     <main>
-      <h1>{`person's Bookshelf`}</h1>
-      <div>
-        {myProfile.bookshelf?.map(book =>
-        <Bookshelf key={book._id} book={book} />
-        )}
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <h1>{`person's Bookshelf`}</h1>
+          <div>
+          {myProfile.bookshelf?.map(book =>
+          <Bookshelf key={book._id} book={book} />
+          )}
+          </div>
+        </div>
       </div>
     </main>
   )

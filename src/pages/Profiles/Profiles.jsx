@@ -1,9 +1,9 @@
 // npm modules
 import { useState, useEffect } from 'react'
-
-// services
+// services 
 import * as profileService from '../../services/profileService'
-
+// components
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 // css
 import styles from './Profiles.module.css'
 
@@ -18,17 +18,15 @@ const Profiles = () => {
     fetchProfiles()
   }, [])
 
-  if (!profiles.length) {
-    return <main className={styles.container}><h1>Loading...</h1></main>
-  }
-  
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1>All Bookworm Profile Users</h1>
-        {profiles.map(profile => (
-          <p key={profile._id}>{profile.name}</p>
-        ))}
+        <h1 className={styles.title}>All Bookworms!</h1>
+        <div className={styles.profileGrid}>
+          {profiles.map(profile => (
+            <ProfileCard key={profile._id} profile={profile} />
+          ))}
+        </div>
       </div>
     </div>
   )
