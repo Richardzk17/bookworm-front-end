@@ -8,8 +8,6 @@ import ProfileCard from '../../components/ProfileCard/ProfileCard'
 import styles from './Profiles.module.css'
 
 const Profiles = () => {
-
-  
   const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
@@ -24,7 +22,7 @@ const Profiles = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <h1 className={styles.title}>All Bookworms!</h1>
-        <div>
+        <div className={styles.profileGrid}>
           {profiles.map(profile => (
             <ProfileCard key={profile._id} profile={profile} />
           ))}

@@ -17,3 +17,9 @@
   margin-bottom: 20px;
 }
 
+.profileGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
