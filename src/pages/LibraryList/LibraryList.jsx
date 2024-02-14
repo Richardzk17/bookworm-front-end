@@ -19,7 +19,7 @@ export async function searchFantasyBooks() {
   return data.works;
 }
 
-export async function searchStuffBooks() {
+export async function searchClassicBooks() {
   const response = await fetch(`${baseUrl}/subjects/classic.json?limit=10`);
   const data = await response.json();
   return data.works;
@@ -31,10 +31,18 @@ export async function searchAdventureBooks() {
   return data.works;
 }
 
+export async function searchThrillerBooks() {
+  const response = await fetch(`${baseUrl}/subjects/thriller.json?limit=10`);
+  const data = await response.json();
+  return data.works;
+}
+
 const LibraryList = () => {
   const [books, setBooks] = useState([]);
   const [classicBooks, setClassicBooks] = useState([]);
   const [adventureBooks, setAdventureBooks] = useState([]);
+  const [thrillerBooks, setThrillerBooks] = useState([]);
+
 
 
 
@@ -45,23 +53,50 @@ const LibraryList = () => {
         console.log(works);
       })
       .catch((error) => console.error("Error fetching fantasy books:", error));
-    searchStuffBooks()
+
+    searchClassicBooks()
       .then((works) => {
         setClassicBooks(works);
         console.log(works);
       })
-      .catch((error) => console.error("Error fetching fantasy books:", error));
+      .catch((error) => console.error("Error fetching Classic books:", error));
+
       searchAdventureBooks()
       .then((works) => {
         setAdventureBooks(works);
         console.log(works);
       })
-      .catch((error) => console.error("Error fetching fantasy books:", error));
+      .catch((error) => console.error("Error fetching Adventure books:", error));
+
+      searchThrillerBooks()
+      .then((works) => {
+        setThrillerBooks(works);
+        console.log(works);
+      })
+      .catch((error) => console.error("Error fetching Thriller books:", error));
   }, []);
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
+      <h2>Thriller Books</h2>
+        <div className={styles.library}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={6}
+            navigation
+          >
+            {thrillerBooks.map((book, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
+                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
         <h2>Fantasy Books</h2>
         <div className={styles.library}>
           <Swiper
@@ -79,25 +114,8 @@ const LibraryList = () => {
             ))}
           </Swiper>
         </div>
-        <h2>Something else</h2>
-        <div className={styles.library}>
-          <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
-            slidesPerView={6}
-            navigation
-          >
-            {adventureBooks.map((book, index) => (
-              <SwiperSlide key={index} className={styles.swiperSlide}>
-                <Link to={`/book/${getIdOfBook(book.key)}`}>
-                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          
-        </div>
-        <h2>Adventure</h2>
+
+        <h2>Classic Books</h2>
         <div className={styles.library}>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -114,6 +132,23 @@ const LibraryList = () => {
             ))}
           </Swiper>
           
+        </div>
+        <h2>Adventure Books</h2>
+        <div className={styles.library}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={6}
+            navigation
+          >
+            {adventureBooks.map((book, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
+                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>

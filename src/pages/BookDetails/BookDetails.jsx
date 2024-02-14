@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import styles from '../BookSearch/Search.css'
+import styles from '../BookDetails/BookDetails.module.css'
 
 
 
@@ -38,8 +38,8 @@ const BookDetails = () => {
     };
     console.log(book)
     return (
-        <div className="container">
-            <div className="content">
+        <div className={styles.container}>
+            <div className={styles.content}>
                 {loading ? (
                     error ? (
                         <div>There was an error. Please refresh the page or go back to the previous page.</div>
@@ -48,7 +48,7 @@ const BookDetails = () => {
                     )
                 ) : (
                     <div>
-                        <div className='bookCover'>
+                        <div className={styles.bookCover}>
                             <img
                                 src={getCoverUrl(book)}
                                 alt={`Cover of ${book.title}`}
@@ -56,7 +56,7 @@ const BookDetails = () => {
                             />
                         </div>
 
-                        <div className="bookDetails">
+                        <div className={styles.bookDetails}>
                             <p>{book.title}</p>
                             <p>{book.description?.value}</p>
                         </div>
