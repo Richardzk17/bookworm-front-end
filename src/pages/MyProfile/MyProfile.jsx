@@ -23,8 +23,8 @@ const MyProfile = (props) => {
   return (
     <main>
       <div className={styles.container}>
+        <h1>{`${myProfile.name}'s Bookshelf`}</h1>
         <div className={styles.content}>
-          <h1>{`${myProfile.name}'s Bookshelf`}</h1>
           <div>
           {myProfile.bookshelf?.map(book =>
           <Bookshelf key={book._id} book={book} />
