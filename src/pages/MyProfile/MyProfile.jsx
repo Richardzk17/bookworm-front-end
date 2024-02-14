@@ -9,11 +9,11 @@ import * as profileService from '../../services/profileService'
 
 // services
 
-const MyProfile = () => {
-  const [myProfile, setMyProfile] = useState([])
+const MyProfile = (props) => {
+  const [myProfile, setMyProfile] = useState({})
   useEffect(() => {
     const fetchMyProfile = async () => {
-      const profileData = await profileService.show()
+      const profileData = await profileService.show(props.user.profile)
       setMyProfile(profileData)
     }
     fetchMyProfile()
@@ -23,7 +23,7 @@ const MyProfile = () => {
     <main>
       <h1>{`person's Bookshelf`}</h1>
       <div>
-        {myProfile.bookshelf.map(book =>
+        {myProfile.bookshelf?.map(book =>
         <Bookshelf key={book._id} book={book} />
         )}
       </div>
