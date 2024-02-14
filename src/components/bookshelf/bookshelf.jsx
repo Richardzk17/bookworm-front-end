@@ -1,14 +1,12 @@
-// npm modules
-// import { Link } from "react-router-dom"
-
-// components
-
-// css
+// css 
+import styles from './Bookshelf.module.css'
 
 
 const Bookshelf = (props) => {
   return (
-      <h1>{props.book.title}</h1>
+      <div className={styles.container}>
+      <h2 className={styles.book}>{props.book.title} by {props.book.author}</h2>
+    </div>
   )
 }
 

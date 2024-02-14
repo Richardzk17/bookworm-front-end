@@ -25,7 +25,7 @@ const MyProfile = (props) => {
       <div className={styles.container}>
         <h1>{`${myProfile.name}'s Bookshelf`}</h1>
         <div className={styles.content}>
-          <div>
+          <div className={styles.bookGrid}>
           {myProfile.bookshelf?.map(book =>
           <Bookshelf key={book._id} book={book} />
           )}

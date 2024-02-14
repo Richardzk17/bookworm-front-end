@@ -1,10 +1,3 @@
-.container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 50px;
-}
 
 .content{
   width: 80%;
@@ -22,4 +15,21 @@
 
 .title{
   text-align: center; 
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bookGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
