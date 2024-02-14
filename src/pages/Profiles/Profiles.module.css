@@ -14,3 +14,9 @@
   border-top-left-radius: 5px;
   margin-bottom: 20px;
 }
+
+.profile {
+  border: 2px solid black;
+  margin: 5px;
+  display: inline-grid;
+}
