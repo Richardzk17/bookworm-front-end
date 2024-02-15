@@ -42,7 +42,7 @@ export async function searchThrillerBooks() {
   return data.works;
 }
 
-const LibraryList = () => {
+const LibraryList = ({ user }) => {
   const [bookwormBooks, setBookwormBooks] = useState ([]); //Bri's code
   const [fantasyBooks, setFantasyBooks] = useState([]);
   const [classicBooks, setClassicBooks] = useState([]);
@@ -134,7 +134,7 @@ const LibraryList = () => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} />
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
