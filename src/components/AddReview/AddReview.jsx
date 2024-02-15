@@ -14,6 +14,10 @@ const NewReview = (props) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
+  const handleCheckbox = evt => {
+    setFormData({...formData, [evt.target.name]: evt.target.checked})
+  }
+
   const handleSubmit = evt => {
     evt.preventDefault()
     props.handleAddReview(formData)
@@ -43,7 +47,7 @@ const NewReview = (props) => {
         name="recommended"
         id="recommended-input"
         checked={formData.recommended}
-        onChange={handleChange}
+        onChange={handleCheckbox}
       />
       <label htmlFor="text-input">Add Review</label>
       <textarea
