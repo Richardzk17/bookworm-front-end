@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 // components
-import NewReview from "../../components/NewReview/NewReview"
+import AddReview from "../../components/AddReview/AddReview"
 import Reviews from "../../components/Reviews/Reviews"
 
 //services
@@ -62,7 +62,7 @@ const BookDetails = (props) => {
                 <h4>Pages: {book.pageCount}</h4>
                 <section>
                   <h1>Reviews</h1>
-                  <NewReview handleAddReview={handleAddReview}/>
+                  <AddReview handleAddReview={handleAddReview}/>
                   <Reviews reviews={book.reviews} user={props.user} />
                 </section>
               </div>
