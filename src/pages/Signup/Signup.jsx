@@ -129,7 +129,7 @@ const Signup = ({ handleAuthEvt }) => {
               className={styles.input}
             />
           </label>
-          {/* <label className={styles.label}>
+          <label className={styles.label}>
             Upload Photo
             <input 
               type="file" 
@@ -137,7 +137,7 @@ const Signup = ({ handleAuthEvt }) => {
               onChange={handleChangePhoto}
               ref={imgInputRef}
             />
-          </label> */}
+          </label>
           <div>
             <button
               className={styles.button}

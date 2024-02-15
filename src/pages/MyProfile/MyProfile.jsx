@@ -23,6 +23,7 @@ const MyProfile = (props) => {
   return (
     <main>
       <div className={styles.container}>
+        <div className={styles.picContainer}><img src={myProfile.photo} alt="profile photo" /></div>
         <h1>{`${myProfile.name}'s Bookshelf`}</h1>
         <div className={styles.content}>
           <div className={styles.bookGrid}>
