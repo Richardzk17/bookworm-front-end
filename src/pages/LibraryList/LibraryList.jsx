@@ -13,6 +13,8 @@ import { getIdOfBook } from '../BookSearch/BookSearch';
 
 //services
 import * as bookService from '../../services/bookService'
+import * as libraryApiService from '../../services/library-api'
+
 //component
 import AddBookBtn from '../../components/AddBookBtn/AddBookBtn';
 
@@ -51,10 +53,16 @@ const LibraryList = ({ user }) => {
 
   // Bri's code here
   const handleAddBook = async (book) => {
+    const OLId = getIdOfBook(book.key)
+    const description = libraryApiService.getBookDescription(OLId)
+    
     const bookData = {
       title: book.title,
       author: book.authors[0].name,
-      OLId: getIdOfBook(book.key),
+      OLId: OLId,
+      summary: description,
+      publishYear: book.first_publish_year,
+      pageCount: book.number_of_pages_median,
       coverURL: `https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg` 
     }
     const newBook = await bookService.create(bookData)
