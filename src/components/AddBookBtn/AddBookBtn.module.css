@@ -8,3 +8,11 @@
   color: #fafafa;
   background-color: #C6011F;
 }
+
+.inLibraryBtn{
+  margin-top: 20px;
+  color: #31631b;
+  background-color: #fafafa;
+  border:1px solid #65B741;
+  
+}

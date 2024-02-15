@@ -49,6 +49,14 @@
   margin-bottom: 10px;
 }
 
+.inLibraryBtn{
+  margin-top: 20px;
+  color: #31631b;
+  background-color: #fafafa;
+  border:1px solid #65B741;
+  
+}
+
 
 h2{
   font-size: 22px;
