@@ -17,11 +17,13 @@ const Profile = () => {
     fetchProfile()
   }, [profileId])
 
+  const defaultPhoto = '/src/assets/defaultWorm.png'
+  
   return (
     <main>
       <div className={styles.container}>
         <div className={styles.profilePic}>
-          <img src={profile.photo} alt="profile photo" />
+          <img src={profile.photo || defaultPhoto} alt="profile photo" />
         </div>
         <h1>{`${profile.name}'s Bookshelf`}</h1>
         <div className={styles.content}>

@@ -20,10 +20,14 @@ const MyProfile = (props) => {
     fetchMyProfile()
   }, [])
 
+  const defaultPhoto = '/src/assets/defaultWorm.png'
+
   return (
     <main>
       <div className={styles.container}>
-        <div className={styles.picContainer}><img src={myProfile.photo} alt="profile photo" /></div>
+        <div className={styles.picContainer}>
+          <img src={myProfile.photo || defaultPhoto} alt="profile photo" />
+          </div>
         <h1>{`${myProfile.name}'s Bookshelf`}</h1>
         <div className={styles.content}>
           <div className={styles.bookGrid}>
