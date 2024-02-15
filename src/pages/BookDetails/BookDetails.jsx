@@ -41,8 +41,9 @@ const BookDetails = (props) => {
   }
 
   const handleDeleteReview = async (reviewId) => {
-    const deletedReview = await bookService.deleteReview(id, reviewId)
-    setBook({...book, reviews: [book.reviews.filter(r => r._id !== deletedReview._id)]})
+    const deletedReviewId = await bookService.deleteReview(id, reviewId)
+    const reviews = book.reviews.filter(r => r._id !== deletedReviewId)
+    setBook({...book, reviews: reviews})
   }
 
   return (
