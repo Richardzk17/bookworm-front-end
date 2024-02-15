@@ -1,19 +1,39 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Search from "../BookSearch/Search";
 import useBookSearch from "../../components/SearchBook/SearchBook";
 
 import styles from '../BookSearch/BookSearch.css'
-import LibraryList from "../LibraryList/LibraryList";
+// import LibraryList from "../LibraryList/LibraryList";
+
+//services
+import * as bookService from '../../services/bookService'
+//component
+import AddBookBtn from '../../components/AddBookBtn/AddBookBtn';
 
 export const getIdOfBook = (key) => {
   let newKey = key.split("/")
   return newKey[newKey.length - 1]
 }
 
-const BookSearch = () => {
+// added user ? in case we change it in the future for guests to be able to search, leave for now -Bri
+const BookSearch = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const { books, loading } = useBookSearch(searchTerm);
+  const navigate = useNavigate()
+
+  // Bri's code here
+  const handleAddBook = async (book) => {
+    const bookData = {
+      title: book.title,
+      author: book.author_name [0],
+      OLId: getIdOfBook(book.key),
+      coverURL: `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` 
+    }
+    const newBook = await bookService.create(bookData)
+    navigate(`/books/${newBook._id}`)
+  }
+  // to here
 
   return (
     <div className="container">
@@ -39,6 +59,7 @@ const BookSearch = () => {
               {book.first_publish_year && (
                 <p>First Publish Year: {book.first_publish_year}</p>
               )}
+              {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
             </li>
           ))}
         </ul>

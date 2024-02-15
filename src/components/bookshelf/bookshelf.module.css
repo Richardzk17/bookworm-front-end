@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: #caf4fa;
+  color: rgb(0, 0, 0);
+  margin: 16px;
+  padding: 16px;
+  width: 150px;
+}
+
+.container:hover {
+  transform: translateY(-8px);
+}
+
+.book {
+  color: rgb(0, 0, 0)
+}
+
+
+/* waiting for book api images to be integrated */
+/* .bookPic {
+  width: 60px;
+  height: 100px;
+}  */

@@ -19,6 +19,7 @@ import MyProfile from './pages/MyProfile/MyProfile'
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Comments from "../src/components/Comments/Comments"
+
 // services
 import * as authService from './services/authService'
 
@@ -70,19 +71,19 @@ function App() {
         />
         <Route 
           path="/library" 
-          element={<LibraryList />} 
+          element={<LibraryList user={user} />} 
         />
         <Route 
           path="/search" 
           element={
             <ProtectedRoute user={user}>
-              <BookSearch />
+              <BookSearch user={user} />
             </ProtectedRoute>
           }          
         />
         <Route 
           path="/book/:id" 
-          element={<BookDetails />} 
+          element={<BookDetails user={user}/>} 
         />
         <Route 
           path='/book/:id/comments'
@@ -104,7 +105,7 @@ function App() {
           path="/profile" 
           element={
             <ProtectedRoute user={user}>
-              <MyProfile />
+              <MyProfile user={user}/>
             </ProtectedRoute>
           }          
         />
