@@ -13,6 +13,7 @@ import LibraryList from './pages/LibraryList/LibraryList'
 import BookDetails from './pages/BookDetails/BookDetails'
 import Profiles from './pages/Profiles/Profiles'
 import MyProfile from './pages/MyProfile/MyProfile'
+import Profile from './pages/Profile/Profile'
 
 
 // components
@@ -106,6 +107,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <MyProfile user={user}/>
+            </ProtectedRoute>
+          }          
+        />
+        <Route 
+          path="/profile/:profileId" 
+          element={
+            <ProtectedRoute user={user}>
+              <Profile user={user}/>
             </ProtectedRoute>
           }          
         />

@@ -1,5 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 // services 
 import * as profileService from '../../services/profileService'
 // components
@@ -21,10 +22,12 @@ const Profiles = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>All Bookworms!</h1>
+        <h1 className={styles.title}>The Bookworm Community</h1>
         <div className={styles.profileGrid}>
           {profiles.map(profile => (
-            <ProfileCard key={profile._id} profile={profile} />
+            <Link key={profile._id} to={`/profile/${profile._id}`} className={styles.profileLink}>
+              <ProfileCard profile={profile}/>
+            </Link>
           ))}
         </div>
       </div>
