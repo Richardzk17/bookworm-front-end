@@ -1,7 +1,7 @@
 // services
 import * as tokenService from './tokenService'
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/bookDetails`
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/books`
 
 
 async function index() {
@@ -18,6 +18,17 @@ async function index() {
 async function show(bookId) {
   try {
     const res = await fetch(`${BASE_URL}/${bookId}`, {
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function showByOLId(OLId) {
+  try {
+    const res = await fetch(`${BASE_URL}/OLId/${OLId}`, {
       headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
     })
     return res.json()
@@ -149,6 +160,7 @@ async function deleteReview(bookId, reviewId) {
 export {
   index,
   show,
+  showByOLId,
   create,
   update,
   createComment,

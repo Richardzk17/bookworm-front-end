@@ -70,19 +70,19 @@ function App() {
         />
         <Route 
           path="/library" 
-          element={<LibraryList />} 
+          element={<LibraryList user={user} />} 
         />
         <Route 
           path="/search" 
           element={
             <ProtectedRoute user={user}>
-              <BookSearch />
+              <BookSearch user={user} />
             </ProtectedRoute>
           }          
         />
         <Route 
           path="/book/:id" 
-          element={<BookDetails />} 
+          element={<BookDetails user={user}/>} 
         />
         <Route 
           path='/book/:id/comments'
