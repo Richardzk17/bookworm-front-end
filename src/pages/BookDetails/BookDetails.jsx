@@ -62,10 +62,9 @@ const BookDetails = (props) => {
     setBook({...book, reviews: reviews})
   }
 
-  const handleEditReview = async (reviewFormData) => {
-    const editReviewId = await bookService.editReview(id, reviewId)
-    const reviews = book.reviews.filter(r => r._id !== editReviewId)
-    setBook({...book, reviews: reviews})
+  const handleEditReview = async (reviewId, reviewFormData) => {
+    const updatedBook = await bookService.editReview(id, reviewId, reviewFormData)
+    setBook(updatedBook)
   }
 
 
@@ -96,7 +95,7 @@ const BookDetails = (props) => {
                 <h4>Pages: {book.pageCount}</h4>
                 <section>
                   <h1>Reviews</h1>
-                  {user &&
+                  {props.user &&
                   <>
                     <Button aria-describedby={id} variant="contained" onClick={handleClick}>Add Review</Button>
                     <Popover

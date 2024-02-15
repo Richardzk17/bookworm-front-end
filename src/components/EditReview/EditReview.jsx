@@ -20,7 +20,7 @@ const EditReview = (props) => {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleEditReview(formData)
+    props.handleEditReview(props.review._id, formData)
     setFormData({text: '', recommended: false, rating: '5'})
     props.handleClose()
   }

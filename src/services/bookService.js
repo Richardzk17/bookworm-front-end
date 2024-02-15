@@ -129,7 +129,7 @@ async function createReview(bookId, reviewFormData) {
   }
 }
 
-async function updateReview(bookId, reviewId, reviewFormData) {
+async function editReview(bookId, reviewId, reviewFormData) {
   try {
     const res = await fetch(`${BASE_URL}/${bookId}/reviews/${reviewId}`, {
       method: 'PUT',
@@ -167,6 +167,6 @@ export {
   updateComment,
   deleteComment,
   createReview,
-  updateReview,
+  editReview,
   deleteReview,
 }

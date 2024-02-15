@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
 import EditReview from '../EditReview/EditReview';
 
-const ReviewCard = ({review, handleUpdateReview, handleDeleteReview}) => {
+const ReviewCard = ({user, review, handleEditReview, handleDeleteReview}) => {
   //popover from mui 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -30,7 +30,7 @@ const ReviewCard = ({review, handleUpdateReview, handleDeleteReview}) => {
       <h3>Rating: {review.rating}</h3>
       <h3>Recommended: {review.recommended? 'Yes' : 'No'}</h3>
       <p>{review.text}</p>
-      {comment.author._id === user.profile &&
+      {review.author._id === user.profile &&
       <>
         <Popover
           id={popId}
@@ -46,7 +46,7 @@ const ReviewCard = ({review, handleUpdateReview, handleDeleteReview}) => {
             horizontal: 'center',
           }}
         >
-          <EditReview review={review} handleEditReview={props.handleEditReview} />
+          <EditReview review={review} handleEditReview={handleEditReview} handleClose={handleClose} />
         </Popover>
         <Button aria-describedby={popId} variant="contained" onClick={handleClick} >📝</Button>
         <button onClick={() => handleDeleteReview(review._id)}>🗑️</button>
