@@ -53,11 +53,11 @@ const BookDetails = () => {
                 />
               </div>
               <div className={styles.rightColumn}>
-                <p>{book.title}</p>
-                <p>{book.author}</p>
+                <h1>{book.title}</h1>
+                <h3>{book.author}</h3>
                 <p>{book.summary}</p>
-                <p>First Published: {book.publishYear}</p>
-                <p>Pages: {book.pageCount}</p>
+                <h4>First Published: {book.publishYear}</h4>
+                <h4>Pages: {book.pageCount}</h4>
               </div>
             </>
         )}

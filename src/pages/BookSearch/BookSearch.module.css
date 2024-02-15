@@ -26,12 +26,12 @@
   padding: 30px;
 }
 
-.input-field::placeholder {
+.inputField::placeholder {
   text-align: center;
   color: gray; 
 }
 
-.input-field {
+.inputField {
   width: 700px;
   height: 60px;
   border: 1px solid #cccccc;
@@ -52,7 +52,7 @@
   font-weight: bold;
 }
 
-.book-list {
+.bookList {
   list-style: none;
   padding: 0;
   display: grid;
@@ -60,7 +60,7 @@
   gap: 20px;
 }
 
-.book-list li {
+.bookList li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,11 +71,11 @@
 
 }
 
-.book-list li p {
+.bookList li p {
   margin: 5px 0;
 }
 
-.book-list img {
+.bookList img {
   width: 150px;
   height: auto;
 }
@@ -85,7 +85,7 @@
 
   
 }
-.book-list li a {
+.bookList li a {
   text-decoration: none;
   color: rgb(169, 6, 6);
   font-weight: bold;

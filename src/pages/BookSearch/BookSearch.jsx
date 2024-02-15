@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Search from "../BookSearch/Search";
 import useBookSearch from "../../components/SearchBook/SearchBook";
 
+//css
 import styles from '../BookSearch/BookSearch.module.css'
 
 
@@ -44,13 +45,13 @@ const BookSearch = ({ user }) => {
   // to here
   
   return (
-    <div className="container">
-      <div className="content">
-        <div className="center">
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.center}>
           <Search term={searchTerm} searchKeyword={setSearchTerm} />
         </div>
-        {loading && <p className="loading">Loading...</p>}
-        <ul className="book-list">
+        {loading && <p className={styles.loading}>Loading...</p>}
+        <ul className={styles.bookList}>
           {books.slice(0, 20).map((book, index) => (
             <li key={index}>
               <img
@@ -59,7 +60,7 @@ const BookSearch = ({ user }) => {
                 style={{ width: "150px", height: "auto" }}
               />
               <div to={`/book/${getIdOfBook(book.key)}`}>
-                <p className="title">{book.title}</p>
+                <p className={styles.title}>{book.title}</p>
               </div>
               {book.author_name && (
                 <p>Author: {book.author_name.join(", ")}</p>
