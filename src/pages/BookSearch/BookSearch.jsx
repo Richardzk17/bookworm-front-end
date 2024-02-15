@@ -16,7 +16,7 @@ export const getIdOfBook = (key) => {
   return newKey[newKey.length - 1]
 }
 
-const BookSearch = () => {
+const BookSearch = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const { books, loading } = useBookSearch(searchTerm);
   const navigate = useNavigate()
@@ -58,7 +58,7 @@ const BookSearch = () => {
               {book.first_publish_year && (
                 <p>First Publish Year: {book.first_publish_year}</p>
               )}
-              <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} />
+              {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
             </li>
           ))}
         </ul>
