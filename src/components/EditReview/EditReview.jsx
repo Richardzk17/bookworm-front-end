@@ -1,5 +1,6 @@
 // npm modules
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
 // css
 
@@ -7,8 +8,7 @@ import { useState } from "react"
 
 
 const EditReview = (props) => {
-  const { state } = useLocation()
-  const [formData, setFormData] = useState(state) 
+  const [formData, setFormData] = useState(props.review) 
   
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -20,7 +20,7 @@ const EditReview = (props) => {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleAddReview(formData)
+    props.handleEditReview(formData)
     setFormData({text: '', recommended: false, rating: '5'})
     props.handleClose()
   }

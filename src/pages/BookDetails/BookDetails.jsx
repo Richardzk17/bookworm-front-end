@@ -62,6 +62,13 @@ const BookDetails = (props) => {
     setBook({...book, reviews: reviews})
   }
 
+  const handleEditReview = async (reviewFormData) => {
+    const editReviewId = await bookService.editReview(id, reviewId)
+    const reviews = book.reviews.filter(r => r._id !== editReviewId)
+    setBook({...book, reviews: reviews})
+  }
+
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -89,29 +96,34 @@ const BookDetails = (props) => {
                 <h4>Pages: {book.pageCount}</h4>
                 <section>
                   <h1>Reviews</h1>
-                  <Button aria-describedby={id} variant="contained" onClick={handleClick}>Add Review</Button>
-                  <Popover
-                    id={popId}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                      vertical: 'center',
-                      horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                      vertical: 'center',
-                      horizontal: 'center',
-                    }}
-                  >
-                    <AddReview 
-                      handleAddReview={handleAddReview} 
-                      handleClose={handleClose}/>
-                  </Popover>
+                  {user &&
+                  <>
+                    <Button aria-describedby={id} variant="contained" onClick={handleClick}>Add Review</Button>
+                    <Popover
+                      id={popId}
+                      open={open}
+                      anchorEl={anchorEl}
+                      onClose={handleClose}
+                      anchorOrigin={{
+                        vertical: 'center',
+                        horizontal: 'center',
+                      }}
+                      transformOrigin={{
+                        vertical: 'center',
+                        horizontal: 'center',
+                      }}
+                    >
+                      <AddReview 
+                        handleAddReview={handleAddReview} 
+                        handleClose={handleClose}/>
+                    </Popover>
+                  </>
+                  }
                   <Reviews 
                     reviews={book.reviews} 
                     user={props.user} 
                     handleDeleteReview={handleDeleteReview}
+                    handleEditReview={handleEditReview}
                   />
                 </section>
               </div>

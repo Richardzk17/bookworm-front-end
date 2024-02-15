@@ -18,6 +18,7 @@ const Reviews = (props) => {
           key={review._id} 
           user={props.user}
           handleDeleteReview={props.handleDeleteReview}
+          handleEditReview={props.handleEditReview}
         />  
       )}
     </>

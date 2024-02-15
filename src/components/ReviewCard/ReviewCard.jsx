@@ -3,8 +3,9 @@ import { useState } from 'react';
 import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 
-//components
+// components
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
+import EditReview from '../EditReview/EditReview';
 
 const ReviewCard = ({review, handleUpdateReview, handleDeleteReview}) => {
   //popover from mui 
@@ -29,8 +30,8 @@ const ReviewCard = ({review, handleUpdateReview, handleDeleteReview}) => {
       <h3>Rating: {review.rating}</h3>
       <h3>Recommended: {review.recommended? 'Yes' : 'No'}</h3>
       <p>{review.text}</p>
-      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-        Add Review</Button>
+      {comment.author._id === user.profile &&
+      <>
         <Popover
           id={popId}
           open={open}
@@ -45,9 +46,12 @@ const ReviewCard = ({review, handleUpdateReview, handleDeleteReview}) => {
             horizontal: 'center',
           }}
         >
-      <button onClick={() => handleUpdateReview(review._id)}>📝</button>
-      </Popover>
-      <button onClick={() => handleDeleteReview(review._id)}>🗑️</button>
+          <EditReview review={review} handleEditReview={props.handleEditReview} />
+        </Popover>
+        <Button aria-describedby={popId} variant="contained" onClick={handleClick} >📝</Button>
+        <button onClick={() => handleDeleteReview(review._id)}>🗑️</button>
+      </>
+      }      
     </article>
   )
 }
