@@ -2,20 +2,20 @@
 // import { useState } from "react"
 
 // css
-import styles from './Reviews.module.css'
+// import styles from './Reviews.module.css'
 
 // components
 
 
-const Reviews = () => {
-  if (!props.comments.length) return <h4>No Comments</h4>
+const Reviews = (props) => {
+  if (!props.reviews.length) return <h4>No Reviews</h4>
   
   return (
     <>
-      {props.comments.map(comment =>
-        <CommentCard 
-          comment={comment} 
-          key={comment._id} 
+      {props.reviews.map(review =>
+        <ReviewCard 
+          review={review} 
+          key={review._id} 
           user={props.user}
         />  
       )}
