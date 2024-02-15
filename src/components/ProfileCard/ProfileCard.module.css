@@ -4,22 +4,23 @@
   justify-content: center;
   align-items: center;
   border: 5px solid black;
-  border-radius: 60px;
-  background-color: #C6011F;
-  color: white;
+  border-radius: 32px;
+  background-color: #e8c157;
+  color: black;
   margin: 16px;
   padding: 16px;
   width: 150px;
   border-style: inset;
+  
 }
 
 .container:hover {
   transform: translateY(-8px);
-  background-color: red;
+  background-color: #c6a54a;
 }
 
 .profile {
-  color: white
+  color: black;
 }
 
 .profilePic {

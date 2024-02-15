@@ -22,7 +22,7 @@ const Profiles = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>All Bookworms!</h1>
+        <h1 className={styles.title}>The Bookworm Community</h1>
         <div className={styles.profileGrid}>
           {profiles.map(profile => (
             <Link key={profile._id} to={`/profile/${profile._id}`} className={styles.profileLink}>

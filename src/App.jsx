@@ -109,8 +109,6 @@ function App() {
             </ProtectedRoute>
           }          
         />
-
-
         <Route 
           path="/profile/:profileId" 
           element={
@@ -119,9 +117,6 @@ function App() {
             </ProtectedRoute>
           }          
         />
-
-
-
       </Routes>
     </>
   )
