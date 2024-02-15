@@ -13,6 +13,7 @@ import { getIdOfBook } from '../BookSearch/BookSearch';
 
 //services
 import * as bookService from '../../services/bookService'
+import AddBookBtn from '../../components/AddBookBtn/AddBookBtn';
 
 const baseUrl = 'https://openlibrary.org';
 
@@ -132,7 +133,7 @@ const LibraryList = () => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <button className="libraryBtn" onClick={() => handleAddBook(book)}>Add to Library</button>
+                <AddBookBtn book={book} OLId={} user={props.user} />
               </SwiperSlide>
             ))}
           </Swiper>

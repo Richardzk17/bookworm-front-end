@@ -7,14 +7,20 @@ import styles from './AddBookBtn.module.css'
 import * as bookService from '../../services/bookService'
 
 
-const AddBookBtn = (props) => {
-  const checkOLId = async (OLId) => {    
-    const book = await bookService.showByOLId(OLId)
-  }
+const AddBookBtn = async (props) => {
+  // const checkOLId = async (OLId) => {    
+    const book = await bookService.showByOLId(props.OLId)
+  // }
 
 
   return (
-
+    <div>
+      {
+        book._id ?  
+        (<Link className="inLibraryBtn" to={`/books/${props.book._id}`}>In Library</Link>)
+        : (<button className="libraryBtn" onClick={() => props.handleAddBook(props.book)}>Add to Library</button>)
+      }
+    </div>
   )
 }
 
