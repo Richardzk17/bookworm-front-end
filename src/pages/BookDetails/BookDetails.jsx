@@ -91,7 +91,7 @@ const BookDetails = (props) => {
                   <h1>Reviews</h1>
                   <Button aria-describedby={id} variant="contained" onClick={handleClick}>Add Review</Button>
                   <Popover
-                    popId={popId}
+                    id={popId}
                     open={open}
                     anchorEl={anchorEl}
                     onClose={handleClose}
