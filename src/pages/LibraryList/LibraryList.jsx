@@ -121,7 +121,7 @@ const LibraryList = ({ user }) => {
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <div>
                 <Link to={`/book/${book._id}`}>
-                  <img src={book.coverURL} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                  <img className={styles.bookCoverImg} src={book.coverURL} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
                 </div>
               </SwiperSlide>
@@ -140,7 +140,7 @@ const LibraryList = ({ user }) => {
             {thrillerBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <div>
-                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                  <img className={styles.bookCoverImg} src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
                 {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
@@ -159,7 +159,7 @@ const LibraryList = ({ user }) => {
             {fantasyBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <div>
-                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                  <img className={styles.bookCoverImg}  src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
                 {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
@@ -178,7 +178,7 @@ const LibraryList = ({ user }) => {
             {classicBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <div>
-                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                  <img className={styles.bookCoverImg} src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
                 {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
@@ -197,7 +197,7 @@ const LibraryList = ({ user }) => {
             {adventureBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <div>
-                  <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                  <img className={styles.bookCoverImg} src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
                 {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
