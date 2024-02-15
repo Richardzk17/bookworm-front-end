@@ -54,7 +54,7 @@ const LibraryList = ({ user }) => {
   // Bri's code here
   const handleAddBook = async (book) => {
     const OLId = getIdOfBook(book.key)
-    const description = libraryApiService.getBookDescription(OLId)
+    const description = await libraryApiService.getBookDescription(OLId)
     
     const bookData = {
       title: book.title,
