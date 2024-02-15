@@ -52,14 +52,6 @@
   backdrop-filter: blur(5px);
 }
 
-/* .message {
-  margin-top: 0;
-  height: 20px;
-  color: #dd1b16;
-  font-size: 18px;
-  font-weight: bold;
-} */
-
 .message{
   color: lightslategray;
 
@@ -92,6 +84,19 @@
   text-align: center;
   margin-top: 5px;
 }
+
+.buttonFile{
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 15px;
+  width: 280px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+
 
 button.btn:hover {
   background-color: #ff7878;
