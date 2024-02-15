@@ -41,7 +41,7 @@ const BookSearch = ({ user }) => {
         <div className="center">
           <Search term={searchTerm} searchKeyword={setSearchTerm} />
         </div>
-        {loading && <p>Loading Books...</p>}
+        {loading && <p className="loading">Loading...</p>}
         <ul className="book-list">
           {books.slice(0, 20).map((book, index) => (
             <li key={index}>
