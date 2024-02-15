@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 // components
+import NewReview from "../../components/NewReview/NewReview"
+import Reviews from "../../components/Reviews/Reviews"
 
 //services
 import * as bookService from '../../services/bookService'
