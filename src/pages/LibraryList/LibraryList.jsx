@@ -39,18 +39,7 @@ export async function searchThrillerBooks() {
   const data = await response.json();
   return data.works;
 }
-// Bri's code here
-const handleAddBook = async (book) => {
-  const bookData = {
-    title: book.title,
-    author: book.authors[0].name,
-    OLId: getIdOfBook(book.key),
-    coverURL: `https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg` 
-  }
-  const newBook = await bookService.create(bookData)
-  setBookwormBooks({newBook, ...bookwormBooks})
-}
-// to here
+
 const LibraryList = () => {
   const [bookwormBooks, setBookwormBooks] = useState ([]); //Bri's code
   const [fantasyBooks, setFantasyBooks] = useState([]);
@@ -58,8 +47,18 @@ const LibraryList = () => {
   const [adventureBooks, setAdventureBooks] = useState([]);
   const [thrillerBooks, setThrillerBooks] = useState([]);
 
-
-
+  // Bri's code here
+  const handleAddBook = async (book) => {
+    const bookData = {
+      title: book.title,
+      author: book.authors[0].name,
+      OLId: getIdOfBook(book.key),
+      coverURL: `https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg` 
+    }
+    const newBook = await bookService.create(bookData)
+    setBookwormBooks([newBook, ...bookwormBooks])
+  }
+// to here
 
   useEffect(() => {
     const fetchAllBookwormBooks = async () => {
@@ -110,9 +109,11 @@ const LibraryList = () => {
           >
             {bookwormBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
+                <div>
                 <Link to={`/book/${book._id}`}>
                   <img src={book.coverURL} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </Link>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -131,7 +132,7 @@ const LibraryList = () => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <button className="libraryBtn">Add to Library</button>
+                <button className="libraryBtn" onClick={() => handleAddBook(book)}>Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -150,7 +151,7 @@ const LibraryList = () => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <button className="libraryBtn">Add to Library</button>
+                <button className="libraryBtn" onClick={() => handleAddBook(book)}>Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -169,7 +170,7 @@ const LibraryList = () => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <button className="libraryBtn">Add to Library</button>
+                <button className="libraryBtn" onClick={() => handleAddBook(book)}>Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -188,7 +189,7 @@ const LibraryList = () => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <button className="libraryBtn">Add to Library</button>
+                <button className="libraryBtn" onClick={() => handleAddBook(book)}>Add to Library</button>
               </SwiperSlide>
             ))}
           </Swiper>

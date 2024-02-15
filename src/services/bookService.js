@@ -26,6 +26,17 @@ async function show(bookId) {
   }
 }
 
+async function showByOLId(OLId) {
+  try {
+    const res = await fetch(`${BASE_URL}/OLId/${OLId}`, {
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 async function create(bookFormData) {
   try {
     const res = await fetch(BASE_URL, {
@@ -149,6 +160,7 @@ async function deleteReview(bookId, reviewId) {
 export {
   index,
   show,
+  showByOLId,
   create,
   update,
   createComment,
