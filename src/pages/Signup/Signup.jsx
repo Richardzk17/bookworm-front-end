@@ -129,8 +129,7 @@ const Signup = ({ handleAuthEvt }) => {
               className={styles.input}
             />
           </label>
-          <label className={styles.label}>
-            Upload Photo
+          <label className={styles.buttonFile}>
             <input 
               type="file" 
               name="photo" 
