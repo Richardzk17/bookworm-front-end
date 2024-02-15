@@ -58,6 +58,11 @@ const BookDetails = () => {
                 <p>{book.summary}</p>
                 <h4>First Published: {book.publishYear}</h4>
                 <h4>Pages: {book.pageCount}</h4>
+                <section>
+                  <h1>Reviews</h1>
+                  <NewReview handleAddReview={handleAddReview}/>
+                  <Reviews reviews={book.reviews} user={props.user} />
+                </section>
               </div>
             </>
         )}

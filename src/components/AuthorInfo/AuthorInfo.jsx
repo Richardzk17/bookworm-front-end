@@ -8,13 +8,11 @@ import DateCard from '../DateCard/DateCard'
 
 
 const AuthorInfo = ({ content }) => {
-  //const photo = content.author.photo ? content.author.photo : profileIcon 
-  // ^ going to add when we set up profile photos
+  const photo = content.author.photo ? content.author.photo : profileIcon 
 
   return (
     <div className={styles.container}>
-      {/* <img src={photo} alt="The user's avatar" /> 
-      ^(going to use when we add profile photos*/}
+      <img src={photo} alt="The user's avatar" /> 
       <section>
         <h4>{content.author.name}</h4>
         <DateCard createdAt={content.createdAt} />
