@@ -40,6 +40,11 @@ const BookDetails = (props) => {
     setBook({...book, reviews: [...book.reviews, newReview]})
   }
 
+  const handleDeleteReview = async (reviewId) => {
+    const deletedReview = await bookService.deleteReview(id, reviewId)
+    setBook({...book, reviews: [book.reviews.filter(r => r._id !== deletedReview._id)]})
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -68,7 +73,11 @@ const BookDetails = (props) => {
                 <section>
                   <h1>Reviews</h1>
                   <AddReview handleAddReview={handleAddReview}/>
-                  <Reviews reviews={book.reviews} user={props.user} />
+                  <Reviews 
+                    reviews={book.reviews} 
+                    user={props.user} 
+                    handleDeleteReview={handleDeleteReview}
+                  />
                 </section>
               </div>
             </>

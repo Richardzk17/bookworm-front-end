@@ -8,7 +8,9 @@ import { useState } from "react"
 
 
 const NewReview = (props) => {
-  const [formData, setFormData] = useState({text: ''})
+  const [formData, setFormData] = 
+    useState({text: '', recommended: false, rating: '5'}
+    )
   
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -21,7 +23,7 @@ const NewReview = (props) => {
   const handleSubmit = evt => {
     evt.preventDefault()
     props.handleAddReview(formData)
-    setFormData({text: ''})
+    setFormData({text: '', recommended: false, rating: '5'})
   }
 
   return (
@@ -41,8 +43,7 @@ const NewReview = (props) => {
         <option value="5">5</option>
       </select>
       <label htmlFor="recommended-input">Recommend to Others?</label>
-      <textarea
-        required
+      <input
         type="checkbox"
         name="recommended"
         id="recommended-input"

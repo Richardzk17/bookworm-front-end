@@ -5,7 +5,7 @@
 // import styles from './Reviews.module.css'
 
 // components
-
+import ReviewCard from "../../components/ReviewCard/ReviewCard"
 
 const Reviews = (props) => {
   if (!props.reviews.length) return <h4>No Reviews</h4>
@@ -17,6 +17,7 @@ const Reviews = (props) => {
           review={review} 
           key={review._id} 
           user={props.user}
+          handleDeleteReview={props.handleDeleteReview}
         />  
       )}
     </>
