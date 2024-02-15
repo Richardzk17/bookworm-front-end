@@ -1,12 +1,14 @@
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
 
-const ReviewCard = ({ comment }) => {
+const ReviewCard = ({ review }) => {
   return (
     <article>
       <header>
-        <AuthorInfo content={}/>
+        <AuthorInfo content={review}/>
       </header>
-      <p>{comment.text}</p>
+      <p>{review.text}</p>
+      <button onClick={() => props.handleDeleteReview(review._id)}>📝</button>
+      <button onClick={() => props.handleDeleteReview(review._id)}>🗑️</button>
     </article>
   )
 }

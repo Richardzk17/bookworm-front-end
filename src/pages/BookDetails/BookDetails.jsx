@@ -14,7 +14,7 @@ import styles from '../BookDetails/BookDetails.module.css'
 
 
 
-const BookDetails = () => {
+const BookDetails = (props) => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [book, setBook] = useState(null);
