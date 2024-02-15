@@ -153,7 +153,7 @@ const LibraryList = ({ user }) => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} />
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
@@ -172,7 +172,7 @@ const LibraryList = ({ user }) => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} />
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
@@ -191,7 +191,7 @@ const LibraryList = ({ user }) => {
                 <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
                 </div>
-                <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} />
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
