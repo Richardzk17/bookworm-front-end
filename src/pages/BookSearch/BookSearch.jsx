@@ -8,6 +8,8 @@ import styles from '../BookSearch/BookSearch.css'
 
 //services
 import * as bookService from '../../services/bookService'
+import * as libraryApiService from '../../services/library-api'
+
 //component
 import AddBookBtn from '../../components/AddBookBtn/AddBookBtn';
 
@@ -37,7 +39,7 @@ const BookSearch = ({ user }) => {
       coverURL: `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` 
     }
     const newBook = await bookService.create(bookData)
-    navigate(`/books/${newBook._id}`)
+    navigate(`/book/${newBook._id}`)
   }
   // to here
   
@@ -56,9 +58,9 @@ const BookSearch = ({ user }) => {
                 alt={`Cover of ${book.title}`}
                 style={{ width: "150px", height: "auto" }}
               />
-              <Link to={`/book/${getIdOfBook(book.key)}`}>
+              <div to={`/book/${getIdOfBook(book.key)}`}>
                 <p className="title">{book.title}</p>
-              </Link>
+              </div>
               {book.author_name && (
                 <p>Author: {book.author_name.join(", ")}</p>
               )}

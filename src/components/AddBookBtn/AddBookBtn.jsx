@@ -23,7 +23,7 @@ const AddBookBtn = (props) => {
     <div>
       {
         bookId ?  
-        (<Link className="inLibraryBtn" to={`/books/${bookId}`}>In Library</Link>)
+        (<Link className="inLibraryBtn" to={`/book/${bookId}`}>In Library</Link>)
         : (<button className="libraryBtn" onClick={() => props.handleAddBook(props.book)}>Add to Library</button>)
       }
     </div>

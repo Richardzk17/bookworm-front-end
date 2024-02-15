@@ -55,8 +55,8 @@ const BookDetails = () => {
               <p>{book.title}</p>
               <p>{book.author}</p>
               <p>{book.summary}</p>
-              <p>{book.publishYear}</p>
-              <p>{book.pageCount}</p>
+              <p>First Published: {book.publishYear}</p>
+              <p>Pages: {book.pageCount}</p>
             </div>
           </div>
         )}
