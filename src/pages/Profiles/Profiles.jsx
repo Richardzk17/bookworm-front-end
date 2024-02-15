@@ -26,7 +26,7 @@ const Profiles = () => {
         <div className={styles.profileGrid}>
           {profiles.map(profile => (
             <Link key={profile._id} to={`/profile/${profile._id}`} className={styles.profileLink}>
-              <ProfileCard profile={profile} />
+              <ProfileCard profile={profile}/>
             </Link>
           ))}
         </div>
