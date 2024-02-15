@@ -1,11 +1,14 @@
+//css
+import styles from '../BookSearch/BookSearch.module.css'
+
 function Search({ term, searchKeyword }) {
     function handleSearch(e) {
       searchKeyword(e.target.value);
     }
     return (
-      <div className="center">
+      <div className={styles.center}>
         <input
-          className="input-field"
+          className={styles.inputField}
           type="text"
           value={term}
           placeholder="Search"
