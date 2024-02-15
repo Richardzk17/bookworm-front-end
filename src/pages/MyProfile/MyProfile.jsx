@@ -1,30 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import * as profileService from '../../services/profileService';
+// css
+import styles from './MyProfile.module.css'
 
-const MyProfile = () => {
-  const [profile, setProfile] = useState(null);
-  const { profileId } = useParams(); // Assuming your route has a parameter named profileId
+// npm modules
+import { useState, useEffect } from 'react'
 
+// components
+import Bookshelf from '../../components/Bookshelf/Bookshelf'
+import * as profileService from '../../services/profileService'
+
+// services
+
+const MyProfile = (props) => {
+  const [myProfile, setMyProfile] = useState({})
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const profileData = await profileService.getProfileById(profileId);
-        setProfile(profileData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProfile();
-  }, [profileId]);
+    const fetchMyProfile = async () => {
+      const profileData = await profileService.show(props.user.profile)
+      setMyProfile(profileData)
+    }
+    fetchMyProfile()
+  }, [])
 
   return (
-    <div>
-      <h1>My Profile</h1>
-      
-    </div>
-  );
-};
+    <main>
+      <div className={styles.container}>
+        <h1>{`${myProfile.name}'s Bookshelf`}</h1>
+        <div className={styles.content}>
+          <div className={styles.bookGrid}>
+          {myProfile.bookshelf?.map(book =>
+          <Bookshelf key={book._id} book={book} />
+          )}
+          </div>
+        </div>
+      </div>
+    </main>
+  )
+}
 
-export default MyProfile;
+export default MyProfile
