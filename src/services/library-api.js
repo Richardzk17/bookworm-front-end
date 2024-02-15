@@ -11,4 +11,3 @@ export async function getBookDescription(OLId) {
   const data = await response.json();
   return data.description;
 }
-

@@ -24,17 +24,23 @@ const BookSearch = ({ user }) => {
 
   // Bri's code here
   const handleAddBook = async (book) => {
+    const OLId = getIdOfBook(book.key)
+    const description = await libraryApiService.getBookDescription(OLId)
+    
     const bookData = {
       title: book.title,
       author: book.author_name [0],
-      OLId: getIdOfBook(book.key),
+      OLId: OLId,
+      summary: description,
+      publishYear: book.first_publish_year,
+      pageCount: book.number_of_pages_median,
       coverURL: `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` 
     }
     const newBook = await bookService.create(bookData)
     navigate(`/books/${newBook._id}`)
   }
   // to here
-
+  
   return (
     <div className="container">
       <div className="content">

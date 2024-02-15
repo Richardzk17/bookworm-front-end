@@ -1,10 +1,16 @@
+// npm modules
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+// components
+
+//services
+import * as bookService from '../../services/bookService'
+
+// styles
 import styles from '../BookDetails/BookDetails.module.css'
 
 
-
-const URL = "https://openlibrary.org/works/";
 
 const BookDetails = () => {
     const { id } = useParams();
