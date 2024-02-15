@@ -39,10 +39,20 @@ export async function searchThrillerBooks() {
   const data = await response.json();
   return data.works;
 }
-
-
+// Bri's code here
+const handleAddBook = async (book) => {
+  const bookData = {
+    title: book.title,
+    author: book.authors[0].name,
+    OLId: getIdOfBook(book.key),
+    coverURL: `https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg` 
+  }
+  const newBook = await bookService.create(bookData)
+  setBookwormBooks({newBook, ...bookwormBooks})
+}
+// to here
 const LibraryList = () => {
-  const [bookwormBooks, setBookwormBooks] = useState ([]);
+  const [bookwormBooks, setBookwormBooks] = useState ([]); //Bri's code
   const [fantasyBooks, setFantasyBooks] = useState([]);
   const [classicBooks, setClassicBooks] = useState([]);
   const [adventureBooks, setAdventureBooks] = useState([]);
