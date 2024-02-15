@@ -96,8 +96,12 @@ const BookDetails = (props) => {
                     anchorEl={anchorEl}
                     onClose={handleClose}
                     anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'left',
+                      vertical: 'center',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'center',
+                      horizontal: 'center',
                     }}
                   >
                     <AddReview 
