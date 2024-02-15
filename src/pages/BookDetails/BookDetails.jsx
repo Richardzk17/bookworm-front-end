@@ -35,6 +35,11 @@ const BookDetails = (props) => {
     fetchBookDetails();
   }, [id]);
 
+  const handleAddReview = async (reviewFormData) => {
+    const newReview = await bookService.createReview(id, reviewFormData)
+    setBook({...book, reviews: [...book.reviews, newReview]})
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
