@@ -3,11 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Search from "../BookSearch/Search";
 import useBookSearch from "../../components/SearchBook/SearchBook";
 
-import styles from '../BookSearch/BookSearch.css'
-// import LibraryList from "../LibraryList/LibraryList";
+//css
+import styles from '../BookSearch/BookSearch.module.css'
+
 
 //services
 import * as bookService from '../../services/bookService'
+import * as libraryApiService from '../../services/library-api'
+
 //component
 import AddBookBtn from '../../components/AddBookBtn/AddBookBtn';
 
@@ -24,25 +27,31 @@ const BookSearch = ({ user }) => {
 
   // Bri's code here
   const handleAddBook = async (book) => {
+    const OLId = getIdOfBook(book.key)
+    const description = await libraryApiService.getBookDescription(OLId)
+    
     const bookData = {
       title: book.title,
       author: book.author_name [0],
-      OLId: getIdOfBook(book.key),
+      OLId: OLId,
+      summary: description,
+      publishYear: book.first_publish_year,
+      pageCount: book.number_of_pages_median,
       coverURL: `https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg` 
     }
     const newBook = await bookService.create(bookData)
-    navigate(`/books/${newBook._id}`)
+    navigate(`/book/${newBook._id}`)
   }
   // to here
-
+  
   return (
-    <div className="container">
-      <div className="content">
-        <div className="center">
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.center}>
           <Search term={searchTerm} searchKeyword={setSearchTerm} />
         </div>
-        {loading && <p className="loading">Loading...</p>}
-        <ul className="book-list">
+        {loading && <p className={styles.loading}>Loading...</p>}
+        <ul className={styles.bookList}>
           {books.slice(0, 20).map((book, index) => (
             <li key={index}>
               <img
@@ -50,9 +59,9 @@ const BookSearch = ({ user }) => {
                 alt={`Cover of ${book.title}`}
                 style={{ width: "150px", height: "auto" }}
               />
-              <Link to={`/book/${getIdOfBook(book.key)}`}>
-                <p className="title">{book.title}</p>
-              </Link>
+              <div to={`/book/${getIdOfBook(book.key)}`}>
+                <p className={styles.title}>{book.title}</p>
+              </div>
               {book.author_name && (
                 <p>Author: {book.author_name.join(", ")}</p>
               )}
