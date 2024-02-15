@@ -13,7 +13,7 @@ import LibraryList from './pages/LibraryList/LibraryList'
 import BookDetails from './pages/BookDetails/BookDetails'
 import Profiles from './pages/Profiles/Profiles'
 import MyProfile from './pages/MyProfile/MyProfile'
-import Profile from './components/Profile/Profile'
+import Profile from './pages/Profile/Profile'
 
 
 // components

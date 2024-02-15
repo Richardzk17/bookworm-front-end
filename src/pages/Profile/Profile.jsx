@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import * as profileService from '../../services/profileService'
 import { useParams } from "react-router-dom"
-
+import Bookshelf from "../../components/bookshelf/bookshelf"
+import styles from './Profile.module.css'
 
 const Profile = () => {
   const { profileId } = useParams()
@@ -16,12 +17,19 @@ const Profile = () => {
     fetchProfile()
   }, [profileId])
 
-  return ( 
-    <>
-      <div>
-        <h1>{profile.name}</h1>
+  return (
+    <main>
+      <div className={styles.container}>
+        <h1>{`${profile.name}'s Bookshelf`}</h1>
+        <div className={styles.content}>
+          <div className={styles.bookGrid}>
+          {profile.bookshelf?.map(book =>
+          <Bookshelf key={book._id} book={book} />
+          )}
+          </div>
+        </div>
       </div>
-    </>
+    </main>
   )
 }
 
