@@ -20,7 +20,7 @@ const MyProfile = (props) => {
     fetchMyProfile()
   }, [])
 
-  const defaultPhoto = '/src/assets/defaultWorm.png'
+  const defaultPhoto = '/src/assets/icons/profile.png'
 
   return (
     <main>
