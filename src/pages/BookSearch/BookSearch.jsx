@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Search from "../BookSearch/Search";
 import useBookSearch from "../../components/SearchBook/SearchBook";
 
-import styles from '../BookSearch/BookSearch.css'
-// import LibraryList from "../LibraryList/LibraryList";
+import styles from '../BookSearch/BookSearch.module.css'
+
 
 //services
 import * as bookService from '../../services/bookService'

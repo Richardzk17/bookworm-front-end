@@ -43,22 +43,23 @@ const BookDetails = () => {
             <div>Loading...</div>
           )
         ) : (
-          <div>
-            <div className={styles.bookCover}>
-              <img
-                src={book.coverURL}
-                alt={`Cover of ${book.title}`}
-                style={{ width: "150px", height: "auto" }}
-              />
-            </div>
-            <div className={styles.bookDetails}>
-              <p>{book.title}</p>
-              <p>{book.author}</p>
-              <p>{book.summary}</p>
-              <p>First Published: {book.publishYear}</p>
-              <p>Pages: {book.pageCount}</p>
-            </div>
-          </div>
+            <>
+              <div className={styles.leftColumn}>
+                <img
+                  src={book.coverURL}
+                  alt={`Cover of ${book.title}`}
+                  style={{ width: "150px", height: "auto" }}
+                  className={styles.bookCover}
+                />
+              </div>
+              <div className={styles.rightColumn}>
+                <p>{book.title}</p>
+                <p>{book.author}</p>
+                <p>{book.summary}</p>
+                <p>First Published: {book.publishYear}</p>
+                <p>Pages: {book.pageCount}</p>
+              </div>
+            </>
         )}
       </div>
     </div>
