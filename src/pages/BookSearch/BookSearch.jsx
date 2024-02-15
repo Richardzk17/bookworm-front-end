@@ -16,6 +16,7 @@ export const getIdOfBook = (key) => {
   return newKey[newKey.length - 1]
 }
 
+// added user ? in case we change it in the future for guests to be able to search, leave for now -Bri
 const BookSearch = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const { books, loading } = useBookSearch(searchTerm);
