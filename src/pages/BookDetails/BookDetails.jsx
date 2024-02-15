@@ -36,7 +36,6 @@ const BookDetails = () => {
         }
         return 'https://via.placeholder.com/150';
     };
-    console.log(book)
     return (
         <div className={styles.container}>
             <div className={styles.content}>

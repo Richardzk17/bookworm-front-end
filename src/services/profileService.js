@@ -25,7 +25,6 @@ async function show(profileId) {
   }
 }
 
-
 async function addPhoto(photoData) {
   try {
     const photoFormData = new FormData()

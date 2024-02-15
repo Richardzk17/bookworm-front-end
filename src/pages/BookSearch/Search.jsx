@@ -8,7 +8,7 @@ function Search({ term, searchKeyword }) {
           className="input-field"
           type="text"
           value={term}
-          placeholder="Enter the book name"
+          placeholder="Search"
           onChange={handleSearch}
         ></input>
       </div>

@@ -11,6 +11,11 @@ import 'swiper/swiper-bundle.css';
 import styles from './LibraryList.module.css';
 import { getIdOfBook } from '../BookSearch/BookSearch';
 
+//services
+import * as bookService from '../../services/bookService'
+//component
+import AddBookBtn from '../../components/AddBookBtn/AddBookBtn';
+
 const baseUrl = 'https://openlibrary.org';
 
 export async function searchFantasyBooks() {
@@ -37,22 +42,39 @@ export async function searchThrillerBooks() {
   return data.works;
 }
 
-const LibraryList = () => {
-  const [books, setBooks] = useState([]);
+const LibraryList = ({ user }) => {
+  const [bookwormBooks, setBookwormBooks] = useState ([]); //Bri's code
+  const [fantasyBooks, setFantasyBooks] = useState([]);
   const [classicBooks, setClassicBooks] = useState([]);
   const [adventureBooks, setAdventureBooks] = useState([]);
   const [thrillerBooks, setThrillerBooks] = useState([]);
 
-
-
+  // Bri's code here
+  const handleAddBook = async (book) => {
+    const bookData = {
+      title: book.title,
+      author: book.authors[0].name,
+      OLId: getIdOfBook(book.key),
+      coverURL: `https://covers.openlibrary.org/b/id/${book.cover_id}-L.jpg` 
+    }
+    const newBook = await bookService.create(bookData)
+    setBookwormBooks([newBook, ...bookwormBooks])
+  }
+// to here
 
   useEffect(() => {
+    const fetchAllBookwormBooks = async () => {
+      const data = await bookService.index()
+      setBookwormBooks(data)
+    }
+    fetchAllBookwormBooks()      
+    
     searchFantasyBooks()
       .then((works) => {
-        setBooks(works);
+        setFantasyBooks(works);
         console.log(works);
       })
-      .catch((error) => console.error("Error fetching fantasy books:", error));
+      .catch((error) => console.error("Error fetching Fantasy books:", error));
 
     searchClassicBooks()
       .then((works) => {
@@ -79,7 +101,27 @@ const LibraryList = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-      <h2>Thriller Books</h2>
+        <h2>Bookworm Library</h2>
+        <div className={styles.library}>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            spaceBetween={50}
+            slidesPerView={6}
+            navigation
+          >
+            {bookwormBooks.map((book, index) => (
+              <SwiperSlide key={index} className={styles.swiperSlide}>
+                <div>
+                <Link to={`/book/${book._id}`}>
+                  <img src={book.coverURL} alt={book.title} style={{ width: "130px", height: "200px" }} />
+                </Link>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        <h2>Thriller Books</h2>
         <div className={styles.library}>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -89,9 +131,10 @@ const LibraryList = () => {
           >
             {thrillerBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
-                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
-                </Link>
+                </div>
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
@@ -105,11 +148,12 @@ const LibraryList = () => {
             slidesPerView={6}
             navigation
           >
-            {books.map((book, index) => (
+            {fantasyBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
-                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
-                </Link>
+                </div>
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
@@ -125,14 +169,15 @@ const LibraryList = () => {
           >
             {classicBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
-                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
-                </Link>
+                </div>
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
-          
         </div>
+
         <h2>Adventure Books</h2>
         <div className={styles.library}>
           <Swiper
@@ -143,9 +188,10 @@ const LibraryList = () => {
           >
             {adventureBooks.map((book, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
-                <Link to={`/book/${getIdOfBook(book.key)}`}>
+                <div>
                   <img src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} alt={book.title} style={{ width: "130px", height: "200px" }} />
-                </Link>
+                </div>
+                {user ? <AddBookBtn book={book} OLId={getIdOfBook(book.key)} handleAddBook={handleAddBook} /> : "" }
               </SwiperSlide>
             ))}
           </Swiper>
