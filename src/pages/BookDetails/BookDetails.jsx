@@ -1,6 +1,8 @@
 // npm modules
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
 
 // components
 import AddReview from "../../components/AddReview/AddReview"
@@ -19,6 +21,20 @@ const BookDetails = (props) => {
   const [loading, setLoading] = useState(true);
   const [book, setBook] = useState(null);
   const [error, setError] = useState(false);
+
+  //popover from mui 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const popId = open ? 'simple-popover' : undefined;
 
   useEffect(() => {
     const fetchBookDetails = async () => {
@@ -73,7 +89,21 @@ const BookDetails = (props) => {
                 <h4>Pages: {book.pageCount}</h4>
                 <section>
                   <h1>Reviews</h1>
-                  <AddReview handleAddReview={handleAddReview}/>
+                  <Button aria-describedby={id} variant="contained" onClick={handleClick}>Add Review</Button>
+                  <Popover
+                    popId={popId}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'left',
+                    }}
+                  >
+                    <AddReview 
+                      handleAddReview={handleAddReview} 
+                      handleClose={handleClose}/>
+                  </Popover>
                   <Reviews 
                     reviews={book.reviews} 
                     user={props.user} 

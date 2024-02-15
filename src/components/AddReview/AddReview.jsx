@@ -7,7 +7,7 @@ import { useState } from "react"
 // components
 
 
-const NewReview = (props) => {
+const AddReview = (props) => {
   const [formData, setFormData] = 
     useState({text: '', recommended: false, rating: '5'}
     )
@@ -24,6 +24,7 @@ const NewReview = (props) => {
     evt.preventDefault()
     props.handleAddReview(formData)
     setFormData({text: '', recommended: false, rating: '5'})
+    props.handleClose()
   }
 
   return (
@@ -65,4 +66,4 @@ const NewReview = (props) => {
   )
 }
 
-export default NewReview
+export default AddReview
