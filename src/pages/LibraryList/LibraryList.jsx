@@ -90,7 +90,7 @@ const LibraryList = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-      <h2>Bookworm Library</h2>
+        <h2>Bookworm Library</h2>
         <div className={styles.library}>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -107,7 +107,8 @@ const LibraryList = () => {
             ))}
           </Swiper>
         </div>
-      <h2>Thriller Books</h2>
+
+        <h2>Thriller Books</h2>
         <div className={styles.library}>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -162,8 +163,8 @@ const LibraryList = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          
         </div>
+
         <h2>Adventure Books</h2>
         <div className={styles.library}>
           <Swiper
