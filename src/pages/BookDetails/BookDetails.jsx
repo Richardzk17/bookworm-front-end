@@ -135,27 +135,42 @@ const BookDetails = (props) => {
                 <section>
                   <h1>Reviews</h1>
                   {props.user &&
-                  <>
-                    <Button aria-describedby={id} variant="contained" onClick={handleClick}>Add Review</Button>
-                    <Popover
-                      id={popId}
-                      open={open}
-                      anchorEl={anchorEl}
-                      onClose={handleClose}
-                      anchorOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                      }}
-                      transformOrigin={{
-                        vertical: 'center',
-                        horizontal: 'center',
-                      }}
-                    >
-                      <AddReview 
-                        handleAddReview={handleAddReview} 
-                        handleClose={handleClose}/>
-                    </Popover>
-                  </>
+                    <>
+                      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
+                        Add Review
+                      </Button>
+                      <Popover
+                        id={popId}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                          vertical: 'center',
+                          horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                          vertical: 'center',
+                          horizontal: 'center',
+                        }}
+                        BackdropProps={{
+                          style: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+                          },
+                        }}
+                        PaperProps={{
+                          style: {
+                            width: '400px', 
+                            height: '300px', 
+                          },
+                        }}
+                      >
+                        <AddReview 
+                          handleAddReview={handleAddReview} 
+                          handleClose={handleClose}
+                        />
+                      </Popover>
+                    </>
+
                   }
                   <Reviews 
                     reviews={book.reviews} 
