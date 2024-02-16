@@ -115,6 +115,7 @@ const BookDetails = (props) => {
                 profile={profile}
                 bookId={id}
                 />
+                <Button aria-describedby={id} variant="contained" onClick={handleClick}>Add Review</Button>
               </div>
               <div className={styles.rightColumn}>
                 <h1>{book.title}</h1>
@@ -136,9 +137,7 @@ const BookDetails = (props) => {
                   <h1>Reviews</h1>
                   {props.user &&
                     <>
-                      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-                        Add Review
-                      </Button>
+
                       <Popover
                         id={popId}
                         open={open}
