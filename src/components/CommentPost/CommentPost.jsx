@@ -3,7 +3,7 @@ import styles from "../CommentPost/CommentPost.module.css"
 
 const CommentPost = (props) => {
   return (
-    <article>
+    <article className={styles['article-container']}>
       <header className={styles.header}>
         <AuthorInfo content={props.comment} />
         <span className={styles.timestamp}>
@@ -17,6 +17,7 @@ const CommentPost = (props) => {
     </article>
   )
 }
+
 
 export default CommentPost;
 
