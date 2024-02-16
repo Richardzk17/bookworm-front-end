@@ -30,7 +30,7 @@ const ReviewCard = ({user, review, handleEditReview, handleDeleteReview}) => {
       <h3>Rating: {review.rating}</h3>
       <h3>Recommended: {review.recommended? 'Yes' : 'No'}</h3>
       <p>{review.text}</p>
-      {review.author._id === user.profile &&
+      {user && review.author._id === user.profile &&
       <>
         <Popover
           id={popId}

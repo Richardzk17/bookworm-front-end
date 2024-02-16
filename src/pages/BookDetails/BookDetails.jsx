@@ -53,11 +53,13 @@ const BookDetails = (props) => {
     };
     fetchBookDetails();
 
-    const fetchMyProfile = async () => {
-      const profileData = await profileService.show(props.user.profile)
-      setProfile(profileData)
+    if (props.user) {
+      const fetchMyProfile = async () => {
+        const profileData = await profileService.show(props.user.profile)
+        setProfile(profileData)
+      }
+      fetchMyProfile()
     }
-    fetchMyProfile()
   }, [id]);
 
   const handleAddReview = async (reviewFormData) => {
@@ -110,11 +112,13 @@ const BookDetails = (props) => {
                   style={{ width: "150px", height: "auto" }}
                   className={styles.bookCover}
                 />
-                <AddToMyShelfBtn 
-                handleAddBook={handleAddBook} 
-                profile={profile}
-                bookId={id}
-                />
+                {profile &&
+                  <AddToMyShelfBtn 
+                    handleAddBook={handleAddBook} 
+                    profile={profile}
+                    bookId={id}
+                  />
+                }
               </div>
               <div className={styles.rightColumn}>
                 <h1>{book.title}</h1>
