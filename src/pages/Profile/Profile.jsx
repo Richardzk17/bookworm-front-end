@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import * as profileService from '../../services/profileService'
 import { useParams } from "react-router-dom"
-import Bookshelf from "../../components/bookshelf/bookshelf"
+import Bookshelf from "../../components/Bookshelf/Bookshelf"
 import styles from './Profile.module.css'
 
 const Profile = () => {
