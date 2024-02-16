@@ -1,5 +1,4 @@
 // npm modules
-import { useState } from "react"
 import { Link } from "react-router-dom"
 // css
 import styles from './AddToMyShelfBtn.module.css'
@@ -9,15 +8,14 @@ import styles from './AddToMyShelfBtn.module.css'
 
 
 const AddBookBtn = (props) => {
-  const [bookId, setBook] = useState()
-  
+  const hasBook = props.bookshelf.includes(props.bookId)
 
   return (
     <div>
       {
-        bookId ?  
-        (<Link className={styles.inLibrary} to={`/book/${bookId}`}>In Library</Link>)
-        : (<button className={styles.libraryBtn} onClick={() => props.handleAddBook(props.book)}>Add to Library</button>)
+        hasBook ?  
+        (<Link className={styles.inLibrary} to={'/profile'}>In My Bookshelf</Link>)
+        : (<button className={styles.libraryBtn} onClick={() => props.handleAddBook(props.bookId)}>Add My Bookshelf</button>)
       }
     </div>
   )

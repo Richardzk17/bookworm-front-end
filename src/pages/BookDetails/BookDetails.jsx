@@ -86,6 +86,10 @@ const BookDetails = (props) => {
     setBook({...book, comments: comments})
   }
 
+  const handleAddBook = async (bookId) => {
+    const newBook = await profileService.addToBookshelf(bookId)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
