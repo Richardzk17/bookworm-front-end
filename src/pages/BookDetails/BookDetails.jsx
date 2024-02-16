@@ -159,8 +159,9 @@ const BookDetails = (props) => {
                         }}
                         PaperProps={{
                           style: {
-                            width: '400px', 
-                            height: '300px', 
+                            width: '70%', 
+                            height: '400px', 
+                            
                           },
                         }}
                       >

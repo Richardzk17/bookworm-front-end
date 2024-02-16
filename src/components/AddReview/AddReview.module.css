@@ -1,0 +1,31 @@
+.formReview{
+  color: rgb(11, 11, 11);
+  padding: 20px;
+}
+
+.title{
+  text-align: center;
+  font-family: Times, serif;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.rating{
+  height: 20px;
+}
+
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="checkbox"],
+select,
+textarea {
+  margin-bottom: 10px; 
+}
+
+button {
+}

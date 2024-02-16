@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 // css
-// import styles from './AddReview/AddReview.module.css'
+import styles from '../AddReview/AddReview.module.css'
 
 // components
 
@@ -28,12 +28,14 @@ const AddReview = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.formReview} onSubmit={handleSubmit}>
+      <p className={styles.title}>Leave a review</p>
       <label htmlFor="rating-input">Rating:</label>
       <select
         required
         name="rating"
         id="rating-input"
+        className={styles.rating}
         value={formData.rating}
         onChange={handleChange}
       >
@@ -51,19 +53,19 @@ const AddReview = (props) => {
         checked={formData.recommended}
         onChange={handleCheckbox}
       />
-      <label htmlFor="text-input">Add Review</label>
+      <label htmlFor="text-input">Review:</label>
       <textarea
         required
         type="text"
         name="text"
         id="text-input"
         value={formData.text}
-        placeholder="Text"
+        placeholder="Add Review"
         onChange={handleChange}
       />
       <button type="submit">Submit</button>
     </form>
-  )
+  );
 }
 
 export default AddReview

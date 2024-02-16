@@ -27,8 +27,8 @@ const ReviewCard = ({user, review, handleEditReview, handleDeleteReview}) => {
       <header>
         <AuthorInfo content={review}/>
       </header>
-      <h3>Rating: {review.rating}</h3>
-      <h3>Recommended: {review.recommended? 'Yes' : 'No'}</h3>
+      <p>Rating: {review.rating}</p>
+      <p>Recommended: {review.recommended? 'Yes' : 'No'}</p>
       <p>{review.text}</p>
       {review.author._id === user.profile &&
       <>
