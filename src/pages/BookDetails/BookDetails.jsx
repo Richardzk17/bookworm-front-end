@@ -68,6 +68,21 @@ const BookDetails = (props) => {
     setBook(updatedBook)
   }
 
+  const handleAddComment = async (commentFormData) => {
+    const newComment = await bookService.createComment(id, commentFormData)
+    setBook({...book, comments: [...book.comments, newComment]})
+  }
+
+  const handleDeleteComment = async (commentId) => {
+    const deletedCommentId = await bookService.deleteComment(id, commentId)
+    const comments = book.comments.filter(c => c._id !== deletedCommentId)
+    setBook({...book, comments: comments})
+  }
+
+  const handleUpdateComment = async (commentId, commentFormData) => {
+    const updatedBook = await bookService.updateComment(id, commentId, commentFormData)
+    setBook(updatedBook)
+  }
 
   return (
     <div className={styles.container}>
@@ -98,6 +113,9 @@ const BookDetails = (props) => {
                   <Comments 
                     comments={book.comments}
                     bookId={book._id}
+                    handleAddComment={handleAddComment}
+                    handleDeleteComment={handleDeleteComment}
+                    handleUpdateComment={handleUpdateComment}
                   />
                 </div>
                 <section>
