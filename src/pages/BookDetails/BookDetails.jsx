@@ -22,6 +22,7 @@ const BookDetails = (props) => {
   const [loading, setLoading] = useState(true);
   const [book, setBook] = useState(null);
   const [error, setError] = useState(false);
+  const [profile, setProfile] = useState(null)
 
   //popover from mui 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -50,6 +51,12 @@ const BookDetails = (props) => {
       }
     };
     fetchBookDetails();
+
+    const fetchMyProfile = async () => {
+      const profileData = await profileService.show(props.user.profile)
+      setProfile(profileData)
+    }
+    fetchMyProfile()
   }, [id]);
 
   const handleAddReview = async (reviewFormData) => {
@@ -97,6 +104,7 @@ const BookDetails = (props) => {
                   style={{ width: "150px", height: "auto" }}
                   className={styles.bookCover}
                 />
+                <button></button>
               </div>
               <div className={styles.rightColumn}>
                 <h1>{book.title}</h1>
