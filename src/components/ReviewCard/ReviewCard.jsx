@@ -45,6 +45,19 @@ const ReviewCard = ({user, review, handleEditReview, handleDeleteReview}) => {
             vertical: 'center',
             horizontal: 'center',
           }}
+          BackdropProps={{
+            style: {
+              backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+            },
+          }}
+          PaperProps={{
+            style: {
+              width: '70%', 
+              height: '450px',
+              border:'3px solid lightgray' 
+              
+            },
+          }}
         >
           <EditReview review={review} handleEditReview={handleEditReview} handleClose={handleClose} />
         </Popover>

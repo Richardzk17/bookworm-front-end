@@ -6,10 +6,10 @@ const CommentPost = (props) => {
       <header>
         <AuthorInfo content={props.comment}/>
       </header>
-      {props.comment.author._id === props.user.profile &&
-        <button onClick={() => props.handleDeleteComment(props.comment._id)}>🗑️</button>
-      }
       <p>{props.comment.text}</p>
+      {props.comment.author._id === props.user.profile &&
+        <button onClick={() => props.handleDeleteComment(props.comment._id)}>Delete</button>
+      }
     </article>
   )
 }

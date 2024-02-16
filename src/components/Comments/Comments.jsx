@@ -44,9 +44,24 @@ const Comments = (props) => {
           vertical: 'center',
           horizontal: 'center',
         }}
+        BackdropProps={{
+          style: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+          },
+        }}
+        PaperProps={{
+          style: {
+            width: '70%', 
+            height: '600px',
+            border:'3px solid lightgray',
+            padding: '20px'
+
+            
+          },
+        }}
       >
-        <h1>Comments</h1>
-        <section>
+      <p style={{ textAlign: 'center', fontFamily: 'Times, serif', fontSize: '32px', fontWeight: 'bold' }}>Comments</p>
+        <section >
           {props.comments.map(comment =>
             <CommentPost 
               comment={comment} 
