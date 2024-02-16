@@ -6,7 +6,7 @@ const CommentPost = (props) => {
       <header>
         <AuthorInfo content={props.comment}/>
       </header>
-      {review.author._id === user.profile &&
+      {props.comment.author._id === props.user.profile &&
         <button onClick={() => props.handleDeleteComment(props.comment._id)}>🗑️</button>
       }
       <p>{props.comment.text}</p>
