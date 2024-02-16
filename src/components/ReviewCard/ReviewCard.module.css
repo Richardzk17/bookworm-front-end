@@ -1,0 +1,33 @@
+.reviewCard {
+overflow: scroll;
+border-bottom: 1px solid #ccc;
+}
+
+.reviewHeader {
+
+}
+
+.rating {
+  width: 6%; 
+  font-size: 16px; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+}
+
+
+
+
+
+
+
+.deleteButton {
+  margin-left: 40%;
+  padding: 10px 30px;
+  background-color: #C6011F;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 280px;
+  margin-top: 5px;
+}

@@ -1,0 +1,33 @@
+.deleteBtn {
+  padding: 5px 10px;
+  background-color: #C6011F;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 5px;
+  margin-left:90%; 
+}
+
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timestamp {
+  color: gray; 
+  font-size: 14px; 
+  margin-left: 10px; 
+
+}
+
+.article-container {
+  border-top: 1px solid #ccc; /* Add border to the top */
+  border-bottom: 1px solid #ccc; 
+  padding: 10px; 
+  margin-bottom: 20px;
+}

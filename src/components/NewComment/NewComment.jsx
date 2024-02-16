@@ -29,9 +29,12 @@ const NewComment = (props) => {
         value={formData.text}
         onChange={handleChange}
       />
-      <button type="submit">Submit Comment</button>
+      <div className={styles['button-container']}>
+        <button className={styles.commentBtn} type="submit">Submit Comment</button>
+      </div>
     </form>
-  )
+  );
+  
 }
 
 export default NewComment

@@ -7,54 +7,55 @@ import Button from '@mui/material/Button';
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
 import EditReview from '../EditReview/EditReview';
 
-const ReviewCard = ({user, review, handleEditReview, handleDeleteReview}) => {
-  //popover from mui 
-  const [anchorEl, setAnchorEl] = useState(null);
+import styles from '../../components/ReviewCard/ReviewCard.module.css'
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const popId = open ? 'simple-popover' : undefined;
-  
+const ReviewCard = ({ user, review, handleEditReview, handleDeleteReview }) => {
   return (
-    <article>
-      <header>
+    <article className={styles.reviewCard}>
+      <header className={styles.reviewHeader}> 
         <AuthorInfo content={review}/>
       </header>
-      <h3>Rating: {review.rating}</h3>
-      <h3>Recommended: {review.recommended? 'Yes' : 'No'}</h3>
-      <p>{review.text}</p>
+      <p className={styles.rating}>Rating: {review.rating}</p> 
+      <p className={styles.recommended}>Recommended: {review.recommended ? 'Yes' : 'No'}</p> 
+      <p className={styles.reviewText}>Comment: {review.text}</p> 
       {user && review.author._id === user.profile &&
-      <>
-        <Popover
-          id={popId}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'center',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: 'center',
-            horizontal: 'center',
-          }}
-        >
-          <EditReview review={review} handleEditReview={handleEditReview} handleClose={handleClose} />
-        </Popover>
-        <Button aria-describedby={popId} variant="contained" onClick={handleClick} >📝</Button>
-        <button onClick={() => handleDeleteReview(review._id)}>🗑️</button>
-      </>
-      }      
+        <>
+          <Popover
+            id={popId}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'center',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'center',
+              horizontal: 'center',
+            }}
+            BackdropProps={{
+              style: {
+                backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+              },
+            }}
+            PaperProps={{
+              style: {
+                width: '70%', 
+                height: '450px',
+                border:'3px solid lightgray' 
+              },
+            }}
+          >
+            <EditReview review={review} handleEditReview={handleEditReview} handleClose={handleClose} />
+          </Popover>
+          <Button className={styles.reviewButton} aria-describedby={id} variant="contained" onClick={handleClick}>
+            Add Review
+          </Button>
+          <button className={styles.deleteButton} onClick={() => handleDeleteReview(review._id)}>🗑️</button> {/* Apply classname to delete button */}
+        </>
+      )}
     </article>
   )
 }
 
-export default ReviewCard
-
+export default ReviewCard;
