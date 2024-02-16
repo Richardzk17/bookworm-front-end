@@ -45,14 +45,7 @@ const AddReview = (props) => {
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <label htmlFor="recommended-input">Recommend to Others?</label>
-      <input
-        type="checkbox"
-        name="recommended"
-        id="recommended-input"
-        checked={formData.recommended}
-        onChange={handleCheckbox}
-      />
+
       <label htmlFor="text-input">Review:</label>
       <textarea
         required
@@ -63,8 +56,16 @@ const AddReview = (props) => {
         placeholder="Add Review"
         onChange={handleChange}
       />
+      <label htmlFor="recommended-input">Recommend to Others?</label>
+      <input
+        type="checkbox"
+        name="recommended"
+        id="recommended-input"
+        checked={formData.recommended}
+        onChange={handleCheckbox}
+      />
       <div>
-      <button type="submit">Submit</button>
+      <button className={styles.reviewBtn} type="submit">Submit</button>
       </div>
     </form>
   );
