@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 // components
 import AddReview from "../../components/AddReview/AddReview"
 import Reviews from "../../components/Reviews/Reviews"
+import Comments from '../../components/Comments/Comments';
 
 //services
 import * as bookService from '../../services/bookService'
@@ -67,6 +68,16 @@ const BookDetails = (props) => {
     setBook(updatedBook)
   }
 
+  const handleAddComment = async (commentFormData) => {
+    const newComment = await bookService.createComment(id, commentFormData)
+    setBook({...book, comments: [...book.comments, newComment]})
+  }
+
+  const handleDeleteComment = async (commentId) => {
+    const deletedCommentId = await bookService.deleteComment(id, commentId)
+    const comments = book.comments.filter(c => c._id !== deletedCommentId)
+    setBook({...book, comments: comments})
+  }
 
   return (
     <div className={styles.container}>
@@ -93,6 +104,16 @@ const BookDetails = (props) => {
                 <p>{book.summary}</p>
                 <h4>First Published: {book.publishYear}</h4>
                 <h4>Pages: {book.pageCount}</h4>
+                <h4>Comments: {book.comments?.length}</h4>
+                <div className={styles.commentsBtn}>
+                  <Comments 
+                    comments={book.comments}
+                    bookId={book._id}
+                    user={props.user} 
+                    handleAddComment={handleAddComment}
+                    handleDeleteComment={handleDeleteComment}
+                  />
+                </div>
                 <section>
                   <h1>Reviews</h1>
                   {props.user &&
