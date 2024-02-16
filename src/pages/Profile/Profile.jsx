@@ -17,7 +17,7 @@ const Profile = () => {
     fetchProfile()
   }, [profileId])
 
-  const defaultPhoto = '/src/assets/defaultWorm.png'
+  const defaultPhoto = '/src/assets/icons/profile.png'
   
   return (
     <main>
