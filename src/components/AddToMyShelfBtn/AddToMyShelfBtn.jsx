@@ -8,9 +8,8 @@ import styles from './AddToMyShelfBtn.module.css'
 
 
 const AddToMyShelfBtn = (props) => {
-  console.log(props)
   const hasBook = () => {
-    return props.profile.bookshelf.find(book => book._id === props.bookId)
+    return props.profile?.bookshelf?.find(book => book._id === props.bookId)
   }
 
   return (
