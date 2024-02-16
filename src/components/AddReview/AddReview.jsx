@@ -63,7 +63,9 @@ const AddReview = (props) => {
         placeholder="Add Review"
         onChange={handleChange}
       />
+      <div>
       <button type="submit">Submit</button>
+      </div>
     </form>
   );
 }
