@@ -1,37 +1,36 @@
+
+
 .container {
+  background-image: url('../../assets/book.png');
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 5px solid black;
-  border-radius: 32px;
-  background-color: #e8c157;
   color: black;
   margin: 16px;
   padding: 16px;
   width: 150px;
-  border-style: inset;
+  height: 175px;
+  box-shadow: 0 2px 6px;
+  /* border-style: inset; */
   
 }
 
 .container:hover {
   transform: translateY(-8px);
-  background-color: #c6a54a;
+  /* background-color: #c6a54a; */
 }
 
-.profile {
+.profileName {
   color: black;
+  margin-bottom: 16px;
 }
 
 .profilePics {
   width: 60px;
   height: 60px;
 } 
-
-
-
-
-
-
 
 
