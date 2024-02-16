@@ -10,7 +10,7 @@
   align-items: center;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
-  background-color: aqua;
+  background-color: rgb(169, 6, 6);
 }
 
 .container h3 {
@@ -30,30 +30,4 @@
 
 .container textarea {
   min-height: 50px;
-}
-
-.container button {
-  margin: 0;
-  color: white;
-  font-weight: 600;
-  background: #00a0df;
-}
-
-.container button[type="submit"] {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  margin-left: 14px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-}
-
-.container button[type="submit"]:hover {
-  cursor: pointer;
-}
-
-.container button[type="submit"] img {
-  width: 18px;
-  height: 18px;
 }

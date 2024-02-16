@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 // components
 import AddReview from "../../components/AddReview/AddReview"
 import Reviews from "../../components/Reviews/Reviews"
+import Comments from '../../components/Comments/Comments';
 
 //services
 import * as bookService from '../../services/bookService'
@@ -93,6 +94,12 @@ const BookDetails = (props) => {
                 <p>{book.summary}</p>
                 <h4>First Published: {book.publishYear}</h4>
                 <h4>Pages: {book.pageCount}</h4>
+                <div className={styles.commentsBtn}>
+                  <Comments 
+                    comments={book.comments}
+                    bookId={book._id}
+                  />
+                </div>
                 <section>
                   <h1>Reviews</h1>
                   {props.user &&

@@ -1,5 +1,8 @@
 // npm modules
 import { useState } from 'react'
+import Popover from '@mui/material/Popover';
+import Button from '@mui/material/Button';
+
 
 //services
 import * as bookService from '../../services/bookService'
@@ -14,7 +17,7 @@ const Comments = (props) => {
   const [comments, setComments] = useState([])
   
   const handleAddComment = async (commentFormData) => {
-    const newComment = await bookService.create(commentFormData)
+    const newComment = await bookService.create(props.bookId, commentFormData)
     setComments([newComment, ...comments])
     navigate(`/book/${commentFormData.bookId}/comments`)
   }
@@ -31,9 +34,37 @@ const Comments = (props) => {
     navigate(`/book/${bookId}/comments`)
   }
 
+  //popover from mui 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const popId = open ? 'simple-popover' : undefined;
+
   return (
     <>
-      <Popover>
+      <Button aria-describedby={popId} variant="contained" onClick={handleClick}>Comments</Button>
+      <Popover
+        id={popId}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'center',
+        }}
+      >
         <h1>Comments</h1>
         <section>
           {props.comments.map(comment =>
