@@ -7,10 +7,11 @@ import Button from '@mui/material/Button';
 // components
 import AddReview from "../../components/AddReview/AddReview"
 import Reviews from "../../components/Reviews/Reviews"
-import Comments from '../../components/Comments/Comments';
-
+import Comments from '../../components/Comments/Comments'
+import AddToMyShelfBtn from '../../components/AddToMyShelfBtn/AddToMyShelfBtn'
 //services
 import * as bookService from '../../services/bookService'
+import * as profileService from '../../services/profileService'
 
 // styles
 import styles from '../BookDetails/BookDetails.module.css'
@@ -22,6 +23,7 @@ const BookDetails = (props) => {
   const [loading, setLoading] = useState(true);
   const [book, setBook] = useState(null);
   const [error, setError] = useState(false);
+  const [profile, setProfile] = useState(null)
 
   //popover from mui 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -50,6 +52,12 @@ const BookDetails = (props) => {
       }
     };
     fetchBookDetails();
+
+    const fetchMyProfile = async () => {
+      const profileData = await profileService.show(props.user.profile)
+      setProfile(profileData)
+    }
+    fetchMyProfile()
   }, [id]);
 
   const handleAddReview = async (reviewFormData) => {
@@ -79,6 +87,11 @@ const BookDetails = (props) => {
     setBook({...book, comments: comments})
   }
 
+  const handleAddBook = async (bookId) => {
+    const profile = await profileService.addToBookshelf(bookId)
+    setProfile(profile)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -96,6 +109,11 @@ const BookDetails = (props) => {
                   alt={`Cover of ${book.title}`}
                   style={{ width: "150px", height: "auto" }}
                   className={styles.bookCover}
+                />
+                <AddToMyShelfBtn 
+                handleAddBook={handleAddBook} 
+                profile={profile}
+                bookId={id}
                 />
               </div>
               <div className={styles.rightColumn}>

@@ -1,30 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  height: 100vh;
+  text-align: center;
+}
 
-.content{
+.content {
   width: 80%;
-  height: 50vh;
-  margin: 20px;
-  padding: 10px;
-  align-self: center;
+  max-width: 1000px;
   background-color: white;
   overflow: auto;
   box-shadow: 0px 0px 1cqb rgba(0, 0, 0, 0.3);
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   margin-bottom: 20px;
-}
-
-.title{
-  text-align: center; 
-}
-
-.container {
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 50px;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .bookGrid {
@@ -36,4 +27,16 @@
 img {
   width: 100px;
   height: 100px;
+}
+
+.rightColumn{
+  background-color: white;
+  padding: 30px;
+
+}
+
+.leftColumn {
+  background-color: rgb(255, 255, 255);
+  border-right: 1px rgb(232, 232, 232) solid;
+  padding: 30px;
 }

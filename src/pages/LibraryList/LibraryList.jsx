@@ -80,28 +80,24 @@ const LibraryList = ({ user }) => {
     searchFantasyBooks()
       .then((works) => {
         setFantasyBooks(works);
-        console.log(works);
       })
       .catch((error) => console.error("Error fetching Fantasy books:", error));
 
     searchClassicBooks()
       .then((works) => {
         setClassicBooks(works);
-        console.log(works);
       })
       .catch((error) => console.error("Error fetching Classic books:", error));
 
       searchAdventureBooks()
       .then((works) => {
         setAdventureBooks(works);
-        console.log(works);
       })
       .catch((error) => console.error("Error fetching Adventure books:", error));
 
       searchThrillerBooks()
       .then((works) => {
         setThrillerBooks(works);
-        console.log(works);
       })
       .catch((error) => console.error("Error fetching Thriller books:", error));
   }, []);
