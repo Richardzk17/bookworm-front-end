@@ -22,7 +22,8 @@ const NavBar = ({ user, handleLogout }) => {
       <li><NavLink to='/about'>About</NavLink></li>
       <li><NavLink to='/search'>Search</NavLink></li>
       <li><NavLink to='/library'>Library</NavLink></li>
-      <li><NavLink to='/profiles'>Profiles</NavLink></li>  
+      {/* <li><NavLink to='/profiles'>Profiles</NavLink></li>   */} 
+      {/* ^ broken code, routes don't link */}
       <li><NavLink to='/profile'>My Profile</NavLink></li>    
       <li><NavLink to="/auth/logout" onClick={handleLogout}>Log Out</NavLink></li>
     </ul>

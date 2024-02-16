@@ -1,29 +1,8 @@
-.container {
+.bookCoverImg{
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  overflow: auto;
-  border: 2px solid black;
-  border-radius: 20px;
-  background-color: #9509f8;
-  color: rgb(0, 0, 0);
-  margin: 16px;
-  padding: 16px;
-  width: 150px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.398);
+  border-radius: 2px;
+  margin: 15px;
+  margin-bottom: 10px;
 }
-
-.container:hover {
-  transform: translateY(-8px);
-}
-
-.book {
-  color: rgb(0, 0, 0)
-}
-
-
-/* waiting for book api images to be integrated */
-/* .bookPic {
-  width: 60px;
-  height: 100px;
-}  */
