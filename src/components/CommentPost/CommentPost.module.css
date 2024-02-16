@@ -1,0 +1,15 @@
+.deleteBtn{
+  background-color: brown;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timestamp {
+  color: gray; 
+  font-size: 14px; 
+  margin-left: 10px; 
+
+}
