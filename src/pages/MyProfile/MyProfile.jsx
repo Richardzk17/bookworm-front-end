@@ -5,7 +5,7 @@ import styles from './MyProfile.module.css'
 import { useState, useEffect } from 'react'
 
 // components
-import Bookshelf from '../../components/Bookshelf/Bookshelf'
+import Bookshelf from '../../components/bookshelf/bookshelf'
 
 // services
 import * as profileService from '../../services/profileService'
