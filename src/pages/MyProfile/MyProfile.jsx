@@ -16,7 +16,6 @@ const MyProfile = (props) => {
     const fetchMyProfile = async () => {
       const profileData = await profileService.show(props.user.profile)
       setMyProfile(profileData)
-      console.log(profileData)
     }
     fetchMyProfile()
   }, [])
