@@ -54,7 +54,7 @@ const Comments = (props) => {
               handleDeleteComment={props.handleDeleteComment}
             />   
           )}
-          <NewComment handleAddComment={handleAddComment}/>
+          <NewComment handleAddComment={props.handleAddComment}/>
         </section>
       </Popover>
     </>

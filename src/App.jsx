@@ -19,7 +19,6 @@ import Profile from './pages/Profile/Profile'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-import Comments from "../src/components/Comments/Comments"
 
 // services
 import * as authService from './services/authService'
@@ -85,14 +84,6 @@ function App() {
         <Route 
           path="/book/:id" 
           element={<BookDetails user={user}/>} 
-        />
-        <Route 
-          path='/book/:id/comments'
-          element={
-            <ProtectedRoute user={user}>
-              <Comments />
-            </ProtectedRoute>
-          }
         />
         <Route 
           path="/profiles" 
