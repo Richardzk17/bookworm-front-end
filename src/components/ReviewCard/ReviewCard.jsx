@@ -18,7 +18,7 @@ const ReviewCard = ({ user, review, handleEditReview, handleDeleteReview }) => {
       <p className={styles.rating}>Rating: {review.rating}</p> 
       <p className={styles.recommended}>Recommended: {review.recommended ? 'Yes' : 'No'}</p> 
       <p className={styles.reviewText}>Comment: {review.text}</p> 
-      {review.author._id === user.profile && (
+      {user && review.author._id === user.profile &&
         <>
           <Popover
             id={popId}
