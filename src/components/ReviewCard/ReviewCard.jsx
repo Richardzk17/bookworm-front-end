@@ -10,6 +10,20 @@ import EditReview from '../EditReview/EditReview';
 import styles from '../../components/ReviewCard/ReviewCard.module.css'
 
 const ReviewCard = ({ user, review, handleEditReview, handleDeleteReview }) => {
+  //popover from mui 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const popId = open ? 'simple-popover' : undefined;
+  
   return (
     <article className={styles.reviewCard}>
       <header className={styles.reviewHeader}> 
@@ -48,8 +62,8 @@ const ReviewCard = ({ user, review, handleEditReview, handleDeleteReview }) => {
           >
             <EditReview review={review} handleEditReview={handleEditReview} handleClose={handleClose} />
           </Popover>
-          <Button className={styles.reviewButton} aria-describedby={id} variant="contained" onClick={handleClick}>
-            Add Review
+          <Button className={styles.reviewButton} aria-describedby={popId} variant="contained" onClick={handleClick}>
+            Edit Review
           </Button>
           <button className={styles.deleteButton} onClick={() => handleDeleteReview(review._id)}>🗑️</button> {/* Apply classname to delete button */}
         </>
