@@ -23,7 +23,7 @@ const MyProfile = (props) => {
   const handleDeleteBook = async (bookId) => {
     const deletedBookId = await profileService.deleteFromBookshelf(bookId)
     const bookshelf = myProfile.bookshelf.filter(b => b._id !== deletedBookId)
-    setMyProfile({...myProfile, bookshelf: bookshelf})
+    setMyProfile({ ...myProfile, bookshelf: bookshelf })
   }
 
   const defaultPhoto = '/src/assets/icons/profile.png'
@@ -31,7 +31,7 @@ const MyProfile = (props) => {
   return (
     <main>
       <div className={styles.container}>
-        
+
         <div className={styles.content}>
           <div className={styles.leftColumn}>
             <div className={styles.picContainer}>
@@ -42,7 +42,7 @@ const MyProfile = (props) => {
           <div className={styles.rightColumn}>
             <div className={styles.bookGrid}>
               {myProfile.bookshelf?.map(book =>
-              <Bookshelf key={book._id} book={book} handleDeleteBook={handleDeleteBook} />
+                <Bookshelf key={book._id} book={book} handleDeleteBook={handleDeleteBook} />
               )}
             </div>
           </div>
