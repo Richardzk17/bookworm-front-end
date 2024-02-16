@@ -14,23 +14,28 @@
   width: 150px;
   height: 175px;
   box-shadow: 0 2px 6px;
-  /* border-style: inset; */
-  
 }
 
 .container:hover {
   transform: translateY(-8px);
-  /* background-color: #c6a54a; */
+  box-shadow: 0 8px 24px;
 }
 
 .profileName {
   color: black;
   margin-bottom: 16px;
+  font-size: 18px;
+  font-family: "Fredoka", sans-serif;
 }
 
 .profilePics {
+  border-radius: 32px;
   width: 60px;
   height: 60px;
 } 
 
+.profileWorms {
+  width: 25px;
+  height: 25px;
+}
 

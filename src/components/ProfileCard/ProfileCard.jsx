@@ -12,9 +12,9 @@ const ProfileCard = ({ profile }) => {
 
   return ( 
     <div className={styles.container}>
+      <img className={styles.profileWorms} src={imgSrc} alt="worm picture" />
       <h2 className={styles.profileName}>{profile.name}</h2>
-      <img className={styles.profilePics}  src={profile.photo || defaultPhoto} alt="profile photo" />
-      {/* <img className={styles.profilePics} src={imgSrc} alt="worm picture" /> */}
+      <img className={styles.profilePics}  src={profile.photo || defaultPhoto} alt="profile photo" /> 
     </div>
   )
 }
