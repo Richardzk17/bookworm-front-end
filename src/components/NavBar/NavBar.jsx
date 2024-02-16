@@ -11,7 +11,7 @@ const NavBar = ({ user, handleLogout }) => {
 
   const publicLinks = (
     <ul>
-      <li><NavLink to='/about'>About</NavLink></li>
+      {/* <li><NavLink to='/about'>About</NavLink></li> */}
       <li><NavLink to='/library'>Library</NavLink></li>
       <li><NavLink to='/auth/login'>Login/Sign up</NavLink></li>
     </ul>
@@ -19,7 +19,8 @@ const NavBar = ({ user, handleLogout }) => {
 
   const protectedLinks = (
     <ul>
-      <li><NavLink to='/about'>About</NavLink></li>
+      {/* <li><NavLink to='/about'>About</NavLink></li> */}
+      {/* ^ did not get to finish, due to having to add reminaing functionality for MVP -Bri */}
       <li><NavLink to='/search'>Search</NavLink></li>
       <li><NavLink to='/library'>Library</NavLink></li>
       {/* <li><NavLink to='/profiles'>Profiles</NavLink></li>   */} 
