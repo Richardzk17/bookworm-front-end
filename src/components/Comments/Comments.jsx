@@ -30,7 +30,7 @@ const Comments = (props) => {
 
   return (
     <>
-      <Button aria-describedby={popId} variant="contained" onClick={handleClick}>Comments</Button>
+      <Button aria-describedby={popId} variant="contained" onClick={handleClick}>View Comments</Button>
       <Popover
         id={popId}
         open={open}
@@ -50,6 +50,8 @@ const Comments = (props) => {
           {props.comments.map(comment =>
             <CommentPost 
               comment={comment} 
+              key={comment._id}
+              user={props.user}
               handleDeleteComment={props.handleDeleteComment}
             />   
           )}

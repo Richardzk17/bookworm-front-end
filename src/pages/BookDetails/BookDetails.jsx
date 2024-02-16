@@ -104,10 +104,12 @@ const BookDetails = (props) => {
                 <p>{book.summary}</p>
                 <h4>First Published: {book.publishYear}</h4>
                 <h4>Pages: {book.pageCount}</h4>
+                <h4>Comments: {book.comments?.length}</h4>
                 <div className={styles.commentsBtn}>
                   <Comments 
                     comments={book.comments}
                     bookId={book._id}
+                    user={props.user} 
                     handleAddComment={handleAddComment}
                     handleDeleteComment={handleDeleteComment}
                   />
