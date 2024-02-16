@@ -7,18 +7,21 @@ import styles from './AddToMyShelfBtn.module.css'
 
 
 
-const AddBookBtn = (props) => {
-  const hasBook = props.bookshelf.includes(props.bookId)
+const AddToMyShelfBtn = (props) => {
+  console.log(props)
+  const hasBook = () => {
+    return props.profile.bookshelf.find(book => book._id === props.bookId)
+  }
 
   return (
     <div>
       {
-        hasBook ?  
+        hasBook() ?  
         (<Link className={styles.inLibrary} to={'/profile'}>In My Bookshelf</Link>)
-        : (<button className={styles.libraryBtn} onClick={() => props.handleAddBook(props.bookId)}>Add My Bookshelf</button>)
+        : (<button className={styles.libraryBtn} onClick={() => props.handleAddBook(props.bookId)}>Add to My Bookshelf</button>)
       }
     </div>
   )
 }
 
-export default AddBookBtn
+export default AddToMyShelfBtn

@@ -7,10 +7,11 @@ import Button from '@mui/material/Button';
 // components
 import AddReview from "../../components/AddReview/AddReview"
 import Reviews from "../../components/Reviews/Reviews"
-import Comments from '../../components/Comments/Comments';
-
+import Comments from '../../components/Comments/Comments'
+import AddToMyShelfBtn from '../../components/AddToMyShelfBtn/AddToMyShelfBtn'
 //services
 import * as bookService from '../../services/bookService'
+import * as profileService from '../../services/profileService'
 
 // styles
 import styles from '../BookDetails/BookDetails.module.css'
@@ -87,7 +88,8 @@ const BookDetails = (props) => {
   }
 
   const handleAddBook = async (bookId) => {
-    const newBook = await profileService.addToBookshelf(bookId)
+    const profile = await profileService.addToBookshelf(bookId)
+    setProfile(profile)
   }
 
   return (
@@ -108,7 +110,11 @@ const BookDetails = (props) => {
                   style={{ width: "150px", height: "auto" }}
                   className={styles.bookCover}
                 />
-                <button></button>
+                <AddToMyShelfBtn 
+                handleAddBook={handleAddBook} 
+                profile={profile}
+                bookId={id}
+                />
               </div>
               <div className={styles.rightColumn}>
                 <h1>{book.title}</h1>

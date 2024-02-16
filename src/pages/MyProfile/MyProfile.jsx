@@ -5,9 +5,10 @@ import styles from './MyProfile.module.css'
 import { useState, useEffect } from 'react'
 
 // components
-import * as profileService from '../../services/profileService'
+import Bookshelf from '../../components/bookshelf/bookshelf'
 
 // services
+import * as profileService from '../../services/profileService'
 
 const MyProfile = (props) => {
   const [myProfile, setMyProfile] = useState({})
@@ -15,6 +16,7 @@ const MyProfile = (props) => {
     const fetchMyProfile = async () => {
       const profileData = await profileService.show(props.user.profile)
       setMyProfile(profileData)
+      console.log(profileData)
     }
     fetchMyProfile()
   }, [])
