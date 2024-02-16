@@ -50,7 +50,6 @@ const Comments = (props) => {
           {props.comments.map(comment =>
             <CommentPost 
               comment={comment} 
-              handleUpdateComment={props.handleUpdateComment} 
               handleDeleteComment={props.handleDeleteComment}
             />   
           )}

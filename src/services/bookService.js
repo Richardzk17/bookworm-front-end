@@ -85,22 +85,6 @@ async function createComment(bookId, commentFormData) {
   }
 }
 
-async function updateComment(bookId, commentFormData) {
-  try {
-    const res = await fetch(`${BASE_URL}/${commentFormData.bookId}/comments/${commentFormData._id}`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(commentFormData)
-    })
-    return res.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 async function deleteComment(bookId, commentId) {
   try {
     const res = await fetch(`${BASE_URL}/${bookId}/comments/${commentId}`, {
@@ -164,7 +148,6 @@ export {
   create,
   update,
   createComment,
-  updateComment,
   deleteComment,
   createReview,
   editReview,

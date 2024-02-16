@@ -79,11 +79,6 @@ const BookDetails = (props) => {
     setBook({...book, comments: comments})
   }
 
-  const handleUpdateComment = async (commentId, commentFormData) => {
-    const updatedBook = await bookService.updateComment(id, commentId, commentFormData)
-    setBook(updatedBook)
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -115,7 +110,6 @@ const BookDetails = (props) => {
                     bookId={book._id}
                     handleAddComment={handleAddComment}
                     handleDeleteComment={handleDeleteComment}
-                    handleUpdateComment={handleUpdateComment}
                   />
                 </div>
                 <section>
