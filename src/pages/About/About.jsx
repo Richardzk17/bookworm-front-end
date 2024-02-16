@@ -1,4 +1,4 @@
-
+// did not get to finish this ran out of time, having to implenent remaining functionality - Bri
 import styles from '../About/About.module.css'
 
 
