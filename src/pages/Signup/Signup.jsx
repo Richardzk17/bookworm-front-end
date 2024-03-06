@@ -62,7 +62,7 @@ const Signup = ({ handleAuthEvt }) => {
       setIsSubmitted(true)
       await authService.signup(formData, photoData.photo)
       handleAuthEvt()
-      navigate('/about')
+      navigate('/library')
     } catch (err) {
       console.log(err)
       setMessage(err.message)
