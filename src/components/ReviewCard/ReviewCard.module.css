@@ -3,22 +3,12 @@ overflow: scroll;
 border-bottom: 1px solid #ccc;
 }
 
-.reviewHeader {
-
-}
-
 .rating {
   width: 6%; 
   font-size: 16px; 
   border-radius: 4px; 
   box-sizing: border-box; 
 }
-
-
-
-
-
-
 
 .deleteButton {
   margin-left: 40%;

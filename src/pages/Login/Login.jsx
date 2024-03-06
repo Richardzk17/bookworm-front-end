@@ -48,7 +48,7 @@ const LoginPage = ({ handleAuthEvt }) => {
     <div className={styles.container}>
       <div className={styles.imgContent}></div>
       <main className={styles.SignInContent}>
-        <h1>Access your account</h1>
+        <h1>Welcome to Bookworm!</h1>
         <p className={styles.message}>
           Thinking of joining us?{" "}
           <Link to="/auth/signup">
